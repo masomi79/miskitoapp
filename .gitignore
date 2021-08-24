@@ -1,13 +1,26 @@
+.DS_STORE
 /node_modules
 /public/hot
 /public/storage
 /storage/*.key
 /vendor
 .env
+.env.example
 .env.backup
+.gitattributes
+.gitignore
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+artisan
+composer.json
+composer.lock
+package copy.json
+package-lock.json
+package.json
+phpunit.xml
+server.php
+webpack.mix.js
