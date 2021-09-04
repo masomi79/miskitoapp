@@ -5,6 +5,7 @@
         v-bind:modalType="mtype"
         v-bind:targetWord="mword"
     ></the-modal>
+    
     <div class="diccionario">
         <p>
             <span class="form-field">
@@ -25,7 +26,9 @@
             <div 
             class="meanings">
                 <p><span class="title">
+                
                     <router-link 
+                        
                         :to="{
                             path: 'word',
                             query:{
@@ -341,6 +344,8 @@
         },
         created() {
             console.log(this.isUser);
+            console.log('id:' + this.id);
+            console.log('lang:' + this.lang);
         }
     }
 </script>

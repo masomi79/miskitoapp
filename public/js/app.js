@@ -16891,6 +16891,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {
     console.log(this.isUser);
+    console.log('id:' + this.id);
+    console.log('lang:' + this.lang);
   }
 });
 
@@ -17184,8 +17186,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
             case 3:
               _this2.word = _this2.wordData.word;
+              console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
 
-            case 4:
+            case 5:
             case "end":
               return _context2.stop();
           }

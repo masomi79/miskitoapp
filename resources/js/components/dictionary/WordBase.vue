@@ -57,6 +57,8 @@ export default {
             .then(response => this.wordData = response.data)
             .catch(error => console.log(error));
         this.word = this.wordData.word;
+
+        console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
     }
 }
 </script>
