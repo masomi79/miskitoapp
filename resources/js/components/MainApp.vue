@@ -5,9 +5,12 @@
         v-bind:modalType="mtype"
         v-bind:targetWord="mword"
     ></the-modal>
-    
+
     <div class="diccionario">
         <p>
+            <input-form
+                v-on:catchSentWord="umcoWord"
+            ></input-form>
             <span class="form-field">
             <input 
                 class="keyword"
@@ -17,6 +20,7 @@
             >
             <button class="searchButton" v-on:click="showWords()"><img src="img/search.png"></button>
             </span>
+
         </p>
         <div v-show="loading" class="loader container">cargando...</div>
         <div v-show="!loading"></div>
@@ -85,6 +89,8 @@
 <script>
     import TheModal from './modules/TheModal.vue';
     import TheControl from './modules/TheControl.vue';
+    import InputForm from './modules/InputForm.vue';
+    import SentWord from './modules/SentWord.vue';
     import SeeAlso from './dictionary/SeeAlso.vue';
     import WordSuggestions from './dictionary/WordSuggestions.vue';
     import ConjugationsTable from './dictionary/ConjugationsTable.vue';
@@ -92,6 +98,8 @@
         components:{
             TheModal,
             TheControl,
+            InputForm,
+            SentWord,
             SeeAlso,
             WordSuggestions,
             ConjugationsTable
@@ -106,6 +114,7 @@
             'loginUser'
         ],
         emits:[
+            'catchSentWord',
             'catchResearchData',
             'catchModalControl'
         ],
@@ -153,6 +162,9 @@
             },
 
 
+            umcoWord(sentWord){
+                console.log('sent word is ' + sentWord);
+            },
 
             ///////////////////////////////////キーワードから結果を取得////////////////////////////
             async showWords(){
