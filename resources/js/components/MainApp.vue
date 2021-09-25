@@ -36,9 +36,9 @@
                         :to="{
                             path: 'word',
                             query:{
-                                id: 151,
-                                lang: 'miq'
-                                }
+                                id: jumpToId ,
+                                lang: jumpToLang
+                           }
                         }">
                         
                     [ {{ word }} ]</router-link></span> 
@@ -145,7 +145,9 @@
                 isSuggestions: false,
                 suggestionsSet: {},
                 isExamples: false,
-                examplesSet: {}
+                examplesSet: {},
+                jumpToId: '',
+                jumpToLang: ''
             };
         },
         methods:{
@@ -200,7 +202,14 @@
                 //結果あり
                 if(Object.keys(this.resultsSet).length > 0){ this.isResults = true}
 
-                // console.log(this.resultsSet);
+                this.jumpToId = this.resultsSet.match;
+                if(this.resultsSet.lang == 'miskito'){
+                    this.jumpToLang = 'miq';
+                }else if(this.resultsSet.lang == 'español'){
+                    this.jumpToLang = 'esp';
+                }
+
+                console.log(this.resultsSet);
                 //訳語の一覧
                 this.meanings = this.resultsSet.meanings
 
@@ -239,6 +248,8 @@
                         await axios.post('/data/getSuggestions', dataForSuggestions)
                             .then(response => this.suggestionsSet = response.data)
                             .catch(error => console.log(error));
+
+                        
 
                        
                         // ステータスの変更

@@ -16628,7 +16628,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isSuggestions: false,
       suggestionsSet: {},
       isExamples: false,
-      examplesSet: {}
+      examplesSet: {},
+      jumpToId: '',
+      jumpToLang: ''
     };
   },
   methods: {
@@ -16692,9 +16694,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //結果あり
                 if (Object.keys(_this.resultsSet).length > 0) {
                   _this.isResults = true;
-                } // console.log(this.resultsSet);
-                //訳語の一覧
+                }
 
+                _this.jumpToId = _this.resultsSet.match;
+
+                if (_this.resultsSet.lang == 'miskito') {
+                  _this.jumpToLang = 'miq';
+                } else if (_this.resultsSet.lang == 'español') {
+                  _this.jumpToLang = 'esp';
+                }
+
+                console.log(_this.resultsSet); //訳語の一覧
 
                 _this.meanings = _this.resultsSet.meanings;
 
@@ -16711,7 +16721,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
                 if (!(_this.wordslang == 'miskito')) {
-                  _context.next = 29;
+                  _context.next = 32;
                   break;
                 }
 
@@ -16721,14 +16731,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   'words': _this.words
                 }; // 取得
 
-                _context.next = 24;
+                _context.next = 27;
                 return axios.post('/data/getRelatedTerms', dataForRelatedTerms).then(function (response) {
                   return _this.relatedTermsSet = response.data;
                 })["catch"](function (error) {
                   return console.log(error);
                 });
 
-              case 24:
+              case 27:
                 // ステータスの変更
                 if (Object.keys(_this.relatedTermsSet).length > 0) {
                   _this.isRelated = true;
@@ -16740,24 +16750,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   'word': _this.word
                 }; // 取得
 
-                _context.next = 28;
+                _context.next = 31;
                 return axios.post('/data/getSuggestions', dataForSuggestions).then(function (response) {
                   return _this.suggestionsSet = response.data;
                 })["catch"](function (error) {
                   return console.log(error);
                 });
 
-              case 28:
+              case 31:
                 // ステータスの変更
                 if (Object.keys(_this.suggestionsSet).length > 0) {
                   _this.isSuggestions = true;
                 }
 
-              case 29:
+              case 32:
                 // nothing more to load
                 _this.loading = false;
 
-              case 30:
+              case 33:
               case "end":
                 return _context.stop();
             }
@@ -17122,6 +17132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _WordMeanings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WordMeanings */ "./resources/js/components/dictionary/WordMeanings.vue");
 /* harmony import */ var _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExampleSentences.vue */ "./resources/js/components/dictionary/ExampleSentences.vue");
+/* harmony import */ var _modules_InputForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/InputForm.vue */ "./resources/js/components/modules/InputForm.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17130,8 +17141,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
+    InputForm: _modules_InputForm_vue__WEBPACK_IMPORTED_MODULE_3__.default,
     ExampleSentences: _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     WordMeanings: _WordMeanings__WEBPACK_IMPORTED_MODULE_1__.default
   },
@@ -17774,8 +17787,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: {
       path: 'word',
       query: {
-        id: 151,
-        lang: 'miq'
+        id: $data.jumpToId,
+        lang: $data.jumpToLang
       }
     }
   }, {
@@ -17787,7 +17800,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.wordslang), 1
+  }, 8
+  /* PROPS */
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.wordslang), 1
   /* TEXT */
   ), _hoisted_8, $data.wtype ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.wtype), 1
   /* TEXT */
@@ -18157,6 +18172,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_example_sentences = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("example-sentences");
 
+  var _component_input_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("input-form");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.word), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.id) + ", " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.lang), 1
@@ -18174,7 +18191,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: $props.id
   }, null, 8
   /* PROPS */
-  , ["id"])]);
+  , ["id"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form)]);
 }
 
 /***/ }),
