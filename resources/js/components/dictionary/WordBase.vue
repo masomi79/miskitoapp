@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="inner">
         <h2>{{ word }}</h2>
         
         <p><span>{{ id }}, {{ lang }}</span></p>
@@ -66,4 +66,8 @@ export default {
     }
 }
 </script>
-
+<style scoped>
+    .inner{
+        padding: 2rem 0;
+    }
+</style>
