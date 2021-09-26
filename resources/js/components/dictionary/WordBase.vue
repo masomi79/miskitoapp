@@ -10,11 +10,10 @@
             v-bind:lang="lang"
             v-bind:userPriviledge="userPriviledge"
             @sendDeleteRelation="deleteRelation"></word-meanings>
+            
         <example-sentences
             class="example-sentences"
             v-bind:id="id"></example-sentences>
-        
-        <input-form />
 
     </div>
 </template>
@@ -22,10 +21,8 @@
 <script>
 import WordMeanings from './WordMeanings';
 import ExampleSentences from './ExampleSentences.vue';
-import InputForm from '../modules/InputForm.vue';
 export default {
     components:{
-        InputForm,
         ExampleSentences,
         WordMeanings
     },

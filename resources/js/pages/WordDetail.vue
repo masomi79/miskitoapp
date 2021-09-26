@@ -7,20 +7,36 @@
                 v-bind:userPriviledge="userPriviledge"
             ></word-base>
         </div>
+        <div class="container">
+            <input-form
+                v-on:catchSentWord="sendWordToSearch"
+            ></input-form>
+            <div v-if="wordToSearch">
+                <search-results
+                    v-bind:wordToSearch="wordToSearch"
+                ></search-results>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import WordBase from '../components/dictionary/WordBase.vue';
+import InputForm from '../components/modules/InputForm.vue';
+import SearchResults from '../components/modules/SearchResults.vue';
 export default {
     data(){
         return{
             id: '',
             lang: '',
-            userPriviledge: 1
+            userPriviledge: 1,
+            //検索に送る
+            wordToSearch: ''
         }
     },
     components:{
+        InputForm,
+        SearchResults,
         WordBase
     },
     created(){
@@ -28,6 +44,11 @@ export default {
         this.lang = this.$route.query.lang;
 
 
+    },
+    methods:{
+        sendWordToSearch(word){
+            this.wordToSearch = word;
+        }
     }
 }
 </script>

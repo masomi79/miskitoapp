@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>This is the form!</p>
         <span class="form-field">
             <input 
                 class="keyword"
@@ -23,12 +22,9 @@
         emits:['cacthSentWord'],
         methods:{
             sendWord(word){
-                console.log('search word :' + word);
+                // console.log('search word :' + word);
                 this.$emit('catchSentWord', word);
             }
-        },
-        created(){
-            console.log('formed');
-        },
+        }
     }
 </script>
