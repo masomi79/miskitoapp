@@ -21,10 +21,15 @@ class DicController extends Controller
 
         $id = request('id');
         $lang = request('lang');
+        $type = "";
 
         if($lang == 'miq'){
             $rc = MiskitoWord::where('id', '=', $id)->select('miskitoWord')->get();
             $word = $rc[0]['miskitoWord'];
+            $getType = MiskitoWord::where('id', '=', $id)
+                ->select('type')
+                ->get();
+            $type = $getType[0]['type'];
         }
 
         if($lang == 'esp'){
@@ -34,7 +39,8 @@ class DicController extends Controller
 
         $word = [
             "id" => $id,
-            "word" => $word
+            "word" => $word,
+            "type" => $type
         ];
 
         return $word;

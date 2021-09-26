@@ -1,19 +1,32 @@
 <template>
     <div class="inner">
-        <h2>{{ word }}</h2>
+        <h2>[{{ word }}]</h2>
         
-        <p><span>{{ id }}, {{ lang }}</span></p>
-
         <word-meanings
             class="word-meanings"
             v-bind:id="id"
             v-bind:lang="lang"
             v-bind:userPriviledge="userPriviledge"
             @sendDeleteRelation="deleteRelation"></word-meanings>
-            
+
+        
+        <conjugations-table
+            class="verbs-conjugations"
+            v-if="isVerb"
+            v-bind:word="word"
+            ></conjugations-table>
+
         <example-sentences
             class="example-sentences"
             v-bind:id="id"></example-sentences>
+
+        <see-also 
+            class="see-also"
+            v-if="isRelated"
+            v-bind:relatedTermsSet="relatedTermsSet"
+            ></see-also>
+
+        <p><span>{{ id }}, {{ lang }}</span></p>
 
     </div>
 </template>
@@ -21,17 +34,26 @@
 <script>
 import WordMeanings from './WordMeanings';
 import ExampleSentences from './ExampleSentences.vue';
+import ConjugationsTable from './ConjugationsTable.vue';
+import SeeAlso from './SeeAlso.vue';
 export default {
     components:{
+        ConjugationsTable,
         ExampleSentences,
-        WordMeanings
+        WordMeanings,
+        SeeAlso
     },
     props:['id','lang','userPriviledge'],
     data(){
         return {
             wordData: '',
             word: '',
-            message: ''
+            message: '',
+            //動詞かどうかを判定して活用表の表示を決定するための変数
+            isVerb: false,
+            //Miskito語の単語であれば関連語句をチェックする
+            isRelated: false,
+            relatedTermsSet: ''
         }
     },
     methods:{
@@ -59,7 +81,26 @@ export default {
             .catch(error => console.log(error));
         this.word = this.wordData.word;
 
+        if(this.wordData.type == 'v'){this.isVerb=true;}
+
         console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
+        console.log(this.wordData);
+
+        //see alsoを生成
+        if(this.lang == 'miq'){
+
+            let words = this.word.split(" ");
+            const dataForRelatedTerms = {
+                'words' : words
+            }
+            // 取得
+            await axios.post('/data/getRelatedTerms', dataForRelatedTerms)
+                .then(response => this.relatedTermsSet = response.data)
+                .catch(error => console.log(error));
+            // ステータスの変更
+            if(Object.keys(this.relatedTermsSet).length > 0){ this.isRelated = true}
+        }
+
     }
 }
 </script>

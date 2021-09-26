@@ -1,11 +1,30 @@
 <template>
-    {{ wordToSearch }}
+    <ul class="meanings-list">
+        <li 
+            v-for="meaning in meanings"
+            v-bind:key="meaning.id"
+            >
+            <span class="meaning-wrap">
+                <router-link 
+                    :to="{
+                        path: 'word',
+                        query:{
+                            id: meaning.id,
+                            lang: langToJump
+                        }
+                    }">{{ meaning.word }}
+                </router-link>
+            </span>
+        </li>
+    </ul>
 </template>
 <script>
 export default {
     data(){
         return {
-            langToSearch: 'hoge'
+            langToSearch: 'hoge',
+            langToJump: '',
+            meanings: {}
         }
     },
     props:{
@@ -16,11 +35,11 @@ export default {
     },
     async created(){
         this.getResults(this.wordToSearch);
-        await console.log(this.langToSearch);
     },
-    async updated(){
-        this.getResults(this.wordToSearch);
-        await console.log(this.langToSearch);
+    watch:{
+        wordToSearch: function(val){
+            this.getResults(val);
+        }
     },
     methods:{
         async getResults(word){
@@ -35,8 +54,41 @@ export default {
                 .catch(error => console.log(error));
             console.log(rsdata);
             this.langToSearch = rsdata;
+            if(this.langToSearch == 'español')this.langToJump='miq';
+            if(this.langToSearch == 'miskito')this.langToJump='esp';
             console.log(this.langToSearch);
+            console.log(this.langToJump);
+
+
+            const words = word.split(" ");
+            const dataForSet = {
+                'word' : word,
+                'words' : words,
+                'lang' : this.langToSearch
+            }
+            console.log(dataForSet);
+            let resultsSet = {};
+            await axios.post('/data/getSearchResult', dataForSet)
+                .then(response => resultsSet = response.data)
+                .catch(error => console.log(error));
+
+            console.log(resultsSet.match)
+            this.meanings = resultsSet.meanings;
+
         }
     }
 }
 </script>
+
+<style scoped>
+    .meanings-list li{
+        display: inline;
+    }
+    .meaning-wrap{
+        padding-right: 1rem;
+    }
+    .meaning-wrap::after{
+        content: ',';
+        position: absolute;
+    }
+</style>

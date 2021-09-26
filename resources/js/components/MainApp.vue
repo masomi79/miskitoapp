@@ -57,20 +57,8 @@
                 </p>
             </div>
 
-            <conjugations-table 
-                class="verbs-conjugations"
-                v-if="isVerb"
-                v-bind:word="word"
-            ></conjugations-table>
-
         </div>
         <div class="references container">
-            <see-also
-                class="related"
-                v-if="isRelated"
-                v-bind:relatedTermsSet="relatedTermsSet"
-                v-on:catchResearchData="research"
-            ></see-also>
 
             <word-suggestions
                 class="suggestions"
@@ -91,18 +79,14 @@
     import TheControl from './modules/TheControl.vue';
     import InputForm from './modules/InputForm.vue';
     import SentWord from './modules/SentWord.vue';
-    import SeeAlso from './dictionary/SeeAlso.vue';
     import WordSuggestions from './dictionary/WordSuggestions.vue';
-    import ConjugationsTable from './dictionary/ConjugationsTable.vue';
     export default {
         components:{
             TheModal,
             TheControl,
             InputForm,
             SentWord,
-            SeeAlso,
-            WordSuggestions,
-            ConjugationsTable
+            WordSuggestions
         },
         props:[
 /*            'isUser',*/
@@ -140,8 +124,6 @@
                 mtype: '',
                 mword: '',
                 isVerb: false,
-                isRelated : false,
-                relatedTermsSet: {},
                 isSuggestions: false,
                 suggestionsSet: {},
                 isExamples: false,
@@ -228,16 +210,6 @@
                 //Miskito語の場合関連語句の一覧を作成する
                 if(this.wordslang == 'miskito'){
                     // 関連語句の生成
-                        // データセットの生成
-                        const dataForRelatedTerms = {
-                            'words' : this.words
-                        }
-                        // 取得
-                        await axios.post('/data/getRelatedTerms', dataForRelatedTerms)
-                            .then(response => this.relatedTermsSet = response.data)
-                            .catch(error => console.log(error));
-                        // ステータスの変更
-                        if(Object.keys(this.relatedTermsSet).length > 0){ this.isRelated = true}
 
                     // Suggestionsを作成する
                         // データセットの生成
