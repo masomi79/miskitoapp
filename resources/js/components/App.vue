@@ -31,11 +31,11 @@
                 .catch(error => console.log(error))
             if(this.loginUser.userId > 0){
                 this.isUser = true;
-                 console.log(this.loginUser);
+                 // console.log(this.loginUser);
             }else{
                 this.isUser = false;
             }
-             console.log(this.isUser);
+            // console.log(this.isUser);
     },
     provide() {
       return {

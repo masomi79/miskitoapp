@@ -17,6 +17,36 @@ class DicController extends Controller
 {
     //
 
+    //単語を受け取り、検索候補を返す
+    public function getSuggestionsFromWord(Request $request){
+
+
+        $word = request('word');
+
+
+        $miqs = MiskitoWord::where('miskitoWord', 'like', '%' . $word . '%')
+            ->where('miskitoWord', '!=', $word)
+            ->select('id','miskitoWord')
+            ->orderBy('miskitoWord')
+            ->get();
+
+        $esps = SpanishWord::where('spanishWord', 'like', '%' . $word . '%')
+            ->where('spanishWord', '!=', $word)
+            ->select('id','spanishWord')
+            ->orderBy('spanishWord')
+            ->get();
+
+
+        $suggestions = [
+            'miq'=>$miqs,
+            'esp'=>$esps
+        ];
+
+        return $suggestions;
+    
+
+    }
+
     //単語と言語からIDを取得
     public function getIdFromWord(Request $request){
 

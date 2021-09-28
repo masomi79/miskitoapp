@@ -6,20 +6,43 @@
             v-bind:key="suggestion.id"
         >
             <span
-                v-on:click="sendResearchData(suggestion.id, suggestion.miskitoWord, 'miskito')"
                 class="pointer"
-            >{{ suggestion.miskitoWord }}</span>
+            >{{ suggestion }}</span>
         </li>
     </ul>
 </template>
 <script>
 export default {
-    inheritAttrs: false,
-    props:['suggestionsSet'],
-    emits:['catchResearchData'],
+    props:['wordToSearch'],
+    data(){
+        return{
+            suggestionsSet: ''
+        }
+    },
+    created(){
+        this.getSuggestionslist(this.wordToSearch);
+    },
+    watch:{
+        wordToSearch:function(value){
+            this.getSuggestionslist(value);
+        }
+    },
     methods:{
-        sendResearchData(id,word,lang){
-            this.$emit('catchResearchData', id, word, lang);
+        // Suggestionsを作成する
+        async getSuggestionslist(word){
+            console.log('make suggestions for ' + word);
+
+            // データセットの生成
+            const sugData = {
+                'word' : word
+            }
+        
+        // 取得
+            await axios.post('/api/getSuggestionsFromWord', sugData)
+                .then(response => this.suggestionsSet = response.data)
+                .catch(error => console.log(error));
+
+            console.log('suggestions are ' + this.suggestionsSet);
         }
     }
 }

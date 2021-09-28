@@ -28,3 +28,5 @@ Route::post('/getMeanings', 'App\Http\Controllers\API\DicController@getMeanings'
 Route::post('/deleteRelation', 'App\Http\COntrollers\API\DIcController@deleteRelation');
 // 単語を受け取り、IDを返す
 Route::post('/getIdFromWord', 'App\Http\Controllers\API\DicController@getIdFromWord');
+// 単語を受け取り検索候補を返す
+Route::post ('/getSuggestionsFromWord','App\Http\Controllers\API\DicController@getSuggestionsFromWord'); 

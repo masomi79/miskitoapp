@@ -37,16 +37,16 @@ export default {
             'lang': this.lang
         }
 
-        if(this.lang == 'miq'){
+        if(this.lang == 'miq' || this.lang == 'miskito'){
             this.opstlang = 'esp'
         }else{
-            this.opstlang = 'miq'
+            this.opstlang = 'miq' || this.lang == 'español'
         }
 
         await axios.post('/api/getMeanings', data)
             .then(response => this.wordSet = response.data)
             .catch(error => console.log(error));
-        console.log(this.wordSet);
+        // console.log(this.wordSet);
         // ステータスの変更
         if(Object.keys(this.wordSet).length > 0){ this.isMeanings = true}else{ this.isMeanings = false }
     },

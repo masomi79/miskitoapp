@@ -16527,15 +16527,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
             case 2:
               if (_this.loginUser.userId > 0) {
-                _this.isUser = true;
-                console.log(_this.loginUser);
+                _this.isUser = true; // console.log(this.loginUser);
               } else {
                 _this.isUser = false;
-              }
+              } // console.log(this.isUser);
 
-              console.log(_this.isUser);
 
-            case 4:
+            case 3:
             case "end":
               return _context.stop();
           }
@@ -16569,8 +16567,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_TheModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/TheModal.vue */ "./resources/js/components/modules/TheModal.vue");
 /* harmony import */ var _modules_TheControl_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/TheControl.vue */ "./resources/js/components/modules/TheControl.vue");
 /* harmony import */ var _modules_InputForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/InputForm.vue */ "./resources/js/components/modules/InputForm.vue");
-/* harmony import */ var _dictionary_WordSuggestions_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dictionary/WordSuggestions.vue */ "./resources/js/components/dictionary/WordSuggestions.vue");
-/* harmony import */ var _modules_SearchResults_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/SearchResults.vue */ "./resources/js/components/modules/SearchResults.vue");
+/* harmony import */ var _modules_SearchResults_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/SearchResults.vue */ "./resources/js/components/modules/SearchResults.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16581,14 +16578,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     TheModal: _modules_TheModal_vue__WEBPACK_IMPORTED_MODULE_1__.default,
     TheControl: _modules_TheControl_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     InputForm: _modules_InputForm_vue__WEBPACK_IMPORTED_MODULE_3__.default,
-    WordSuggestions: _dictionary_WordSuggestions_vue__WEBPACK_IMPORTED_MODULE_4__.default,
-    SearchResults: _modules_SearchResults_vue__WEBPACK_IMPORTED_MODULE_5__.default
+    SearchResults: _modules_SearchResults_vue__WEBPACK_IMPORTED_MODULE_4__.default
   },
   props: [
   /*            'isUser',*/
@@ -16619,8 +16614,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isVerb: false,
       suggestionsSet: {},
       isExamples: false,
-      examplesSet: {},*/
-      isSuggestions: false,
+      examplesSet: {},
+      isSuggestions: false,*/
       showModal: false,
       jumpToId: '',
       jumpToLang: '',
@@ -16629,8 +16624,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     sendWordToSearch: function sendWordToSearch(word) {
-      this.wordToSearch = word;
-      console.log('vamos a buscar ' + this.wordToSearch);
+      this.wordToSearch = word; // console.log('vamos a buscar ' + this.wordToSearch);
     },
     openModal: function openModal(type) {
       this.showModal = true;
@@ -16640,8 +16634,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     closeModal: function closeModal() {
       this.showModal = false;
     },
-    umcoWord: function umcoWord(sentWord) {
-      console.log('sent word is ' + sentWord);
+    umcoWord: function umcoWord(sentWord) {// console.log('sent word is ' + sentWord);
     },
     ///////////////////////////////////キーワードから結果を取得////////////////////////////
 
@@ -16816,10 +16809,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  created: function created() {
-    console.log(this.isUser);
-    console.log('id:' + this.id);
-    console.log('lang:' + this.lang);
+  created: function created() {// console.log(this.isUser);
+    // console.log('id:' + this.id);
+    // console.log('lang:' + this.lang);
   }
 });
 
@@ -17042,6 +17034,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExampleSentences.vue */ "./resources/js/components/dictionary/ExampleSentences.vue");
 /* harmony import */ var _ConjugationsTable_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ConjugationsTable.vue */ "./resources/js/components/dictionary/ConjugationsTable.vue");
 /* harmony import */ var _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SeeAlso.vue */ "./resources/js/components/dictionary/SeeAlso.vue");
+/* harmony import */ var _modules_SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/SearchedMeanings.vue */ "./resources/js/components/modules/SearchedMeanings.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17052,12 +17045,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ConjugationsTable: _ConjugationsTable_vue__WEBPACK_IMPORTED_MODULE_3__.default,
     ExampleSentences: _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     WordMeanings: _WordMeanings__WEBPACK_IMPORTED_MODULE_1__.default,
-    SeeAlso: _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_4__.default
+    SeeAlso: _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_4__.default,
+    SearchedMeanings: _modules_SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_5__.default
   },
   props: ['id', 'lang', 'userPriviledge'],
   data: function data() {
@@ -17081,19 +17076,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                deleteData.tid = Number(_this.id);
-                console.log(deleteData);
-                _context.next = 4;
+                deleteData.tid = Number(_this.id); // console.log(deleteData);
+
+                _context.next = 3;
                 return axios.post('/api/deleteRelation', deleteData).then(function (response) {
                   return _this.message = response.data;
                 })["catch"](function (error) {
                   return console.log(error);
                 });
 
-              case 4:
-                console.log(_this.message);
-
-              case 5:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -17127,13 +17119,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               if (_this2.wordData.type == 'v') {
                 _this2.isVerb = true;
-              }
+              } // console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
+              // console.log(this.wordData);
+              //see alsoを生成
 
-              console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
-              console.log(_this2.wordData); //see alsoを生成
 
               if (!(_this2.lang == 'miq')) {
-                _context2.next = 13;
+                _context2.next = 11;
                 break;
               }
 
@@ -17142,20 +17134,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 'words': words
               }; // 取得
 
-              _context2.next = 12;
+              _context2.next = 10;
               return axios.post('/data/getRelatedTerms', dataForRelatedTerms).then(function (response) {
                 return _this2.relatedTermsSet = response.data;
               })["catch"](function (error) {
                 return console.log(error);
               });
 
-            case 12:
+            case 10:
               // ステータスの変更
               if (Object.keys(_this2.relatedTermsSet).length > 0) {
                 _this2.isRelated = true;
               }
 
-            case 13:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -17210,10 +17202,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 'lang': _this.lang
               };
 
-              if (_this.lang == 'miq') {
+              if (_this.lang == 'miq' || _this.lang == 'miskito') {
                 _this.opstlang = 'esp';
               } else {
-                _this.opstlang = 'miq';
+                _this.opstlang = 'miq' || 0;
               }
 
               _context.next = 4;
@@ -17224,15 +17216,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
 
             case 4:
-              console.log(_this.wordSet); // ステータスの変更
-
+              // console.log(this.wordSet);
+              // ステータスの変更
               if (Object.keys(_this.wordSet).length > 0) {
                 _this.isMeanings = true;
               } else {
                 _this.isMeanings = false;
               }
 
-            case 6:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -17272,13 +17264,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  inheritAttrs: false,
-  props: ['suggestionsSet'],
-  emits: ['catchResearchData'],
+  props: ['wordToSearch'],
+  data: function data() {
+    return {
+      suggestionsSet: ''
+    };
+  },
+  created: function created() {
+    this.getSuggestionslist(this.wordToSearch);
+  },
+  watch: {
+    wordToSearch: function wordToSearch(value) {
+      this.getSuggestionslist(value);
+    }
+  },
   methods: {
-    sendResearchData: function sendResearchData(id, word, lang) {
-      this.$emit('catchResearchData', id, word, lang);
+    // Suggestionsを作成する
+    getSuggestionslist: function getSuggestionslist(word) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var sugData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('make suggestions for ' + word); // データセットの生成
+
+                sugData = {
+                  'word': word
+                }; // 取得
+
+                _context.next = 4;
+                return axios.post('/api/getSuggestionsFromWord', sugData).then(function (response) {
+                  return _this.suggestionsSet = response.data;
+                })["catch"](function (error) {
+                  return console.log(error);
+                });
+
+              case 4:
+                console.log('suggestions are ' + _this.suggestionsSet);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -17328,6 +17370,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchedMeanings.vue */ "./resources/js/components/modules/SearchedMeanings.vue");
+/* harmony import */ var _dictionary_WordSuggestions_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dictionary/WordSuggestions.vue */ "./resources/js/components/dictionary/WordSuggestions.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -17335,9 +17378,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    SearchedMeanings: _SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_1__.default
+    SearchedMeanings: _SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    WordSuggestions: _dictionary_WordSuggestions_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
   props: {
     wordToSearch: {
@@ -17348,7 +17393,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       wordId: '',
-      langToSearch: ''
+      langToSearch: '',
+      wordNotFound: false
     };
   },
   methods: {
@@ -17361,24 +17407,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this.wordNotFound = false;
                 _this.langToSearch = lang;
                 data = {
                   lang: _this.langToSearch,
                   word: _this.wordToSearch
                 };
                 rs = '';
-                _context.next = 5;
+                _context.next = 6;
                 return axios.post('/api/getIdFromWord', data).then(function (response) {
                   return rs = response.data;
                 })["catch"](function (error) {
                   return console.log(error);
                 });
 
-              case 5:
+              case 6:
                 _this.wordId = rs;
-                console.log('id is ' + _this.wordId + ' and lang is ' + _this.langToSearch);
 
-              case 7:
+                if (rs == 'no se encuentra') {
+                  _this.wordNotFound = true;
+                } // console.log('id is ' + this.wordId + ' and lang is ' + this.langToSearch);
+
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -17426,14 +17477,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {
     this.getResults(this.wordToSearch);
-    this.$emit('getLangToSearch', this.langToSearch);
-    console.log('lang to search is ' + this.langToSearch);
   },
   watch: {
     wordToSearch: function wordToSearch(val) {
+      // console.log('word changed');
       this.getResults(val);
-      this.$emit('getLangToSearch', this.langToSearch);
-      console.log('lang to search is ' + this.langToSearch);
     }
     /*
     langToSearch: function(val){
@@ -17466,32 +17514,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 4:
-                console.log(rsdata);
+                // console.log(rsdata);
                 _this.langToSearch = rsdata;
-                if (_this.langToSearch == 'español') _this.langToJump = 'miq';
-                if (_this.langToSearch == 'miskito') _this.langToJump = 'esp';
-                console.log(_this.langToSearch);
-                console.log(_this.langToJump);
+                if (_this.langToSearch == 'español' || _this.langToSearch == 'esp') _this.langToJump = 'miq';
+                if (_this.langToSearch == 'miskito' || _this.langToSearch == 'miq') _this.langToJump = 'esp'; // console.log(this.langToSearch);
+                // console.log(this.langToJump);
+
                 words = word.split(" ");
                 dataForSet = {
                   'word': word,
                   'words': words,
                   'lang': _this.langToSearch
-                };
-                console.log(dataForSet);
+                }; // console.log(dataForSet);
+
                 resultsSet = {};
-                _context.next = 16;
+                _context.next = 12;
                 return axios.post('/data/getSearchResult', dataForSet).then(function (response) {
                   return resultsSet = response.data;
                 })["catch"](function (error) {
                   return console.log(error);
                 });
 
-              case 16:
-                console.log(resultsSet.match);
+              case 12:
+                // console.log(resultsSet.match)
                 _this.meanings = resultsSet.meanings;
 
-              case 18:
+                _this.$emit('getLangToSearch', _this.langToSearch); // console.log('lang to search is ' + this.langToSearch);
+
+
+              case 14:
               case "end":
                 return _context.stop();
             }
@@ -17840,8 +17891,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_search_results = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("search-results");
 
-  var _component_word_suggestions = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("word-suggestions");
-
   var _component_the_control = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("the-control");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [$data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_the_modal, {
@@ -17859,15 +17908,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     wordToSearch: $data.wordToSearch
   }, null, 8
   /* PROPS */
-  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [$data.isSuggestions ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_word_suggestions, {
+  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [$props.loginUser ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_the_control, {
     key: 0,
-    "class": "suggestions",
-    suggestionsSet: _ctx.suggestionsSet,
-    onCatchResearchData: _ctx.research
-  }, null, 8
-  /* PROPS */
-  , ["suggestionsSet", "onCatchResearchData"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.loginUser ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_the_control, {
-    key: 1,
     targetWord: _ctx.mword,
     onCatchModalControl: $options.openModal
   }, null, 8
@@ -18221,17 +18263,16 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   var _component_see_also = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("see-also");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", null, "[" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.word) + "]", 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", null, "[ " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.word) + " ]", 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_word_meanings, {
     "class": "word-meanings",
     id: $props.id,
     lang: $props.lang,
-    userPriviledge: $props.userPriviledge,
-    onSendDeleteRelation: $options.deleteRelation
+    userPriviledge: $props.userPriviledge
   }, null, 8
   /* PROPS */
-  , ["id", "lang", "userPriviledge", "onSendDeleteRelation"]), $data.isVerb ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_conjugations_table, {
+  , ["id", "lang", "userPriviledge"]), $data.isVerb ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_conjugations_table, {
     key: 0,
     "class": "verbs-conjugations",
     word: $data.word
@@ -18345,18 +18386,16 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
+var _hoisted_2 = {
+  "class": "pointer"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.suggestionsSet, function (suggestion) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.suggestionsSet, function (suggestion) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       key: suggestion.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-      onClick: function onClick($event) {
-        return $options.sendResearchData(suggestion.id, suggestion.miskitoWord, 'miskito');
-      },
-      "class": "pointer"
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(suggestion.miskitoWord), 9
-    /* TEXT, PROPS */
-    , ["onClick"])]);
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(suggestion), 1
+    /* TEXT */
+    )]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])], 64
@@ -18447,9 +18486,21 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("[ ");
+var _hoisted_3 = {
+  key: 0
+};
+var _hoisted_4 = {
+  key: 1
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ]");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("[ ");
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ] ");
+
+var _hoisted_7 = {
+  key: 2,
+  "class": "one-line-message"
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -18458,7 +18509,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   var _component_searched_meanings = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("searched-meanings");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  var _component_word_suggestions = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("word-suggestions");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, $data.wordNotFound ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("h2", _hoisted_3, "[ " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.wordToSearch) + " ]", 1
+  /* TEXT */
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("h2", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       path: 'word',
       query: {
@@ -18477,12 +18532,16 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   }, 8
   /* PROPS */
-  , ["to"]), _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_searched_meanings, {
+  , ["to"]), _hoisted_6])), $data.wordNotFound ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_7, "Lo sentimos pero no se encuentra la palabra en el diccionario")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_searched_meanings, {
     wordToSearch: $props.wordToSearch,
     onGetLangToSearch: $options.getIdFromWord
   }, null, 8
   /* PROPS */
-  , ["wordToSearch", "onGetLangToSearch"])]);
+  , ["wordToSearch", "onGetLangToSearch"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_word_suggestions, {
+    wordToSearch: $props.wordToSearch
+  }, null, 8
+  /* PROPS */
+  , ["wordToSearch"])]);
 });
 
 /***/ }),
@@ -23655,7 +23714,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.inner[data-v-5d857679]{\n        padding: 0 0 2rem;\n        text-align: left;\n}\n.ref[data-v-5d857679]{\n        text-align: right;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.inner[data-v-5d857679]{\n        padding: 0 0 2rem;\n        text-align: left;\n}\n.ref[data-v-5d857679]{\n        text-align: right;\n}\n.word-meanings[data-v-5d857679]{\n        padding-left: 40px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23703,7 +23762,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.search-results-wrap[data-v-8419df6a]{\n        text-align: left;\n        padding: 1rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.search-results-wrap[data-v-8419df6a]{\n        text-align: left;\n        padding: 1rem;\n}\n.one-line-message[data-v-8419df6a]{\n        padding-left: 40px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

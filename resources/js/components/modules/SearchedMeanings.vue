@@ -35,14 +35,11 @@ export default {
     },
     created(){
         this.getResults(this.wordToSearch);
-        this.$emit('getLangToSearch', this.langToSearch);
-            console.log('lang to search is ' + this.langToSearch);
     },
     watch:{
         wordToSearch: function(val){
+            // console.log('word changed');
             this.getResults(val);
-            this.$emit('getLangToSearch', this.langToSearch);
-            console.log('lang to search is ' + this.langToSearch);
         },
         /*
         langToSearch: function(val){
@@ -62,12 +59,12 @@ export default {
             await axios.post('/data/checkWordsLang', vals)
                 .then(response=>rsdata=response.data)
                 .catch(error => console.log(error));
-            console.log(rsdata);
+            // console.log(rsdata);
             this.langToSearch = rsdata;
-            if(this.langToSearch == 'español')this.langToJump='miq';
-            if(this.langToSearch == 'miskito')this.langToJump='esp';
-            console.log(this.langToSearch);
-            console.log(this.langToJump);
+            if(this.langToSearch == 'español' || this.langToSearch == 'esp')this.langToJump='miq';
+            if(this.langToSearch == 'miskito' || this.langToSearch == 'miq')this.langToJump='esp';
+            // console.log(this.langToSearch);
+            // console.log(this.langToJump);
 
 
             const words = word.split(" ");
@@ -76,14 +73,17 @@ export default {
                 'words' : words,
                 'lang' : this.langToSearch
             }
-            console.log(dataForSet);
+            // console.log(dataForSet);
             let resultsSet = {};
             await axios.post('/data/getSearchResult', dataForSet)
                 .then(response => resultsSet = response.data)
                 .catch(error => console.log(error));
 
-            console.log(resultsSet.match)
+            // console.log(resultsSet.match)
             this.meanings = resultsSet.meanings;
+
+            this.$emit('getLangToSearch', this.langToSearch);
+            // console.log('lang to search is ' + this.langToSearch);
 
         }
     }

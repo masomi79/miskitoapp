@@ -187,21 +187,6 @@ class AdminController extends Controller
         return $resultsSet;
     }
 
-    ////////////////////キーワードを受け取り提案語句の一覧を返す/////////////////////////
-    public function getSuggestions(Request $request){
-
-        $word = request('word');
-
-        $suggestions = MiskitoWord::where('miskitoWord', 'like', '%' . $word . '%')
-        ->where('miskitoWord', '!=', $word)
-        ->select('id','miskitoWord')
-        ->orderBy('miskitoWord')
-        ->get();
-
-
-
-        return $suggestions;
-    }
 
     ////////////////////キーワードを受け取り関連語句と意味の一覧を返す////////////////////
     public function getRelatedTerms(Request $request){

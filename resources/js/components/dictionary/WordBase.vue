@@ -1,13 +1,13 @@
 <template>
     <div class="inner">
-        <h2>[{{ word }}]</h2>
-        
+        <h2>[ {{ word }} ]</h2>
+
         <word-meanings
             class="word-meanings"
             v-bind:id="id"
             v-bind:lang="lang"
             v-bind:userPriviledge="userPriviledge"
-            @sendDeleteRelation="deleteRelation"></word-meanings>
+            ></word-meanings>
 
         
         <conjugations-table
@@ -36,12 +36,14 @@ import WordMeanings from './WordMeanings';
 import ExampleSentences from './ExampleSentences.vue';
 import ConjugationsTable from './ConjugationsTable.vue';
 import SeeAlso from './SeeAlso.vue';
+import SearchedMeanings from '../modules/SearchedMeanings.vue';
 export default {
     components:{
         ConjugationsTable,
         ExampleSentences,
         WordMeanings,
-        SeeAlso
+        SeeAlso,
+        SearchedMeanings
     },
     props:['id','lang','userPriviledge'],
     data(){
@@ -59,13 +61,13 @@ export default {
     methods:{
         async deleteRelation(deleteData){
             deleteData.tid = Number(this.id);
-            console.log(deleteData);
+            // console.log(deleteData);
 
             await axios.post('/api/deleteRelation', deleteData)
                 .then(response => this.message = response.data)
                 .catch(error => console.log(error));
             
-            console.log(this.message);
+            // console.log(this.message);
 
         }
     },
@@ -83,8 +85,8 @@ export default {
 
         if(this.wordData.type == 'v'){this.isVerb=true;}
 
-        console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
-        console.log(this.wordData);
+        // console.log('this is word base component. id is ' + data.id + ' and lang is ' + data.lang);
+        // console.log(this.wordData);
 
         //see alsoを生成
         if(this.lang == 'miq'){
@@ -111,5 +113,8 @@ export default {
     }
     .ref{
         text-align: right;
+    }
+    .word-meanings{
+        padding-left: 40px;
     }
 </style>

@@ -22,12 +22,6 @@
 
         <div class="references container">
 
-            <word-suggestions
-                class="suggestions"
-                v-if="isSuggestions"
-                v-bind:suggestionsSet="suggestionsSet"
-                v-on:catchResearchData="research"
-            ></word-suggestions>
             <the-control
                 v-if="loginUser"
                 v-bind:targetWord="mword"
@@ -40,14 +34,12 @@
     import TheModal from './modules/TheModal.vue';
     import TheControl from './modules/TheControl.vue';
     import InputForm from './modules/InputForm.vue';
-    import WordSuggestions from './dictionary/WordSuggestions.vue';
     import SearchResults from './modules/SearchResults.vue';
     export default {
         components:{
             TheModal,
             TheControl,
             InputForm,
-            WordSuggestions,
             SearchResults
 
         },
@@ -84,8 +76,8 @@
                 isVerb: false,
                 suggestionsSet: {},
                 isExamples: false,
-                examplesSet: {},*/
-                isSuggestions: false,
+                examplesSet: {},
+                isSuggestions: false,*/
                 showModal: false,
                 jumpToId: '',
                 jumpToLang: '',
@@ -96,7 +88,7 @@
 
             sendWordToSearch(word){
                 this.wordToSearch = word;
-                console.log('vamos a buscar ' + this.wordToSearch);
+                // console.log('vamos a buscar ' + this.wordToSearch);
             },
 
             openModal(type){
@@ -112,7 +104,7 @@
 
 
             umcoWord(sentWord){
-                console.log('sent word is ' + sentWord);
+                // console.log('sent word is ' + sentWord);
             },
 
             ///////////////////////////////////キーワードから結果を取得////////////////////////////
@@ -310,9 +302,9 @@
             }
         },
         created() {
-            console.log(this.isUser);
-            console.log('id:' + this.id);
-            console.log('lang:' + this.lang);
+            // console.log(this.isUser);
+            // console.log('id:' + this.id);
+            // console.log('lang:' + this.lang);
         }
     }
 </script>
