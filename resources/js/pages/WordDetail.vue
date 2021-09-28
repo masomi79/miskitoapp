@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="diccionario">
         <div class="container">
             <word-base
                 v-bind:id="id"
@@ -34,6 +34,7 @@ export default {
             wordToSearch: ''
         }
     },
+    emits:['catchSentWord'],
     components:{
         InputForm,
         SearchResults,

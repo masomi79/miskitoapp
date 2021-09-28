@@ -26,7 +26,7 @@
             v-bind:relatedTermsSet="relatedTermsSet"
             ></see-also>
 
-        <p><span>{{ id }}, {{ lang }}</span></p>
+        <p class="ref"><span>{{ lang }}-{{ id }}</span></p>
 
     </div>
 </template>
@@ -106,6 +106,10 @@ export default {
 </script>
 <style scoped>
     .inner{
-        padding: 2rem 0;
+        padding: 0 0 2rem;
+        text-align: left;
+    }
+    .ref{
+        text-align: right;
     }
 </style>

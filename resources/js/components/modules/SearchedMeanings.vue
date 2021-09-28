@@ -33,13 +33,23 @@ export default {
             default: 'hoge'
         }
     },
-    async created(){
+    created(){
         this.getResults(this.wordToSearch);
+        this.$emit('getLangToSearch', this.langToSearch);
+            console.log('lang to search is ' + this.langToSearch);
     },
     watch:{
         wordToSearch: function(val){
             this.getResults(val);
+            this.$emit('getLangToSearch', this.langToSearch);
+            console.log('lang to search is ' + this.langToSearch);
+        },
+        /*
+        langToSearch: function(val){
+            console.log('lang to search is ' + this.langToSearch);
+            this.$emit('getLangToSearch', this.langToSearch);
         }
+        */
     },
     methods:{
         async getResults(word){

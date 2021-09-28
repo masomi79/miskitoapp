@@ -16,6 +16,25 @@ use App\Models\miqExRelation;
 class DicController extends Controller
 {
     //
+
+    //単語と言語からIDを取得
+    public function getIdFromWord(Request $request){
+
+        $word = request('word');
+        $lang = request('lang');
+
+        if($lang == 'miskito'){
+            $rs = MiskitoWord::where('miskitoWord', '=', $word)->select('id')->get();
+            $id = $rs[0]['id'];
+        }elseif($lang == 'español'){
+            $rs = SpanishWord::where('spanishWord', '=', $word)->select('id')->get();
+            $id = $rs[0]['id'];
+        }else{
+            $id = 'no se encuentra';
+        }
+
+        return $id;
+    }
     //IDと言語から単語を取得
     public function getWordFromId(Request $request){
 
@@ -23,7 +42,7 @@ class DicController extends Controller
         $lang = request('lang');
         $type = "";
 
-        if($lang == 'miq'){
+        if($lang == 'miq' || $lang == 'miskito'){
             $rc = MiskitoWord::where('id', '=', $id)->select('miskitoWord')->get();
             $word = $rc[0]['miskitoWord'];
             $getType = MiskitoWord::where('id', '=', $id)
@@ -32,7 +51,7 @@ class DicController extends Controller
             $type = $getType[0]['type'];
         }
 
-        if($lang == 'esp'){
+        if($lang == 'esp' || $lang == 'español'){
             $rc = SpanishWord::where('id', '=', $id)->select('spanishWord')->get();
             $word = $rc[0]['spanishWord'];
         }
@@ -65,13 +84,13 @@ class DicController extends Controller
         $lang = request('lang');
         $id = request('id');
 
-        if($lang == 'miq'){
+        if($lang == 'miq' || $lang == 'miskito'){
             $result = miqEspRelation::where('miskitoWord', '=', $id)
             ->leftJoin('spanish_words',  'miq_esp_relations.spanishWord', '=', 'spanish_words.id')
             ->select('spanish_words.id', 'spanish_words.spanishWord as word')
             ->orderBy('spanish_words.spanishWord')
             ->get();
-        }elseif($lang == 'esp'){
+        }elseif($lang == 'esp' || $lang == 'español'){
             $result = miqEspRelation::where('spanishWord', '=', $id)
             ->leftJoin('miskito_words',  'miq_esp_relations.miskitoWord', '=', 'miskito_words.id')
             ->select('miskito_words.id', 'miskito_words.miskitoWord as word')

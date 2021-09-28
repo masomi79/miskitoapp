@@ -7,57 +7,19 @@
     ></the-modal>
 
     <div class="diccionario">
-        <p>
+        <div>
             <input-form
-                v-on:catchSentWord="umcoWord"
+                v-on:catchSentWord="sendWordToSearch"
             ></input-form>
-            <span class="form-field">
-            <input 
-                class="keyword"
-                v-bind:placeholder="phmessage" 
-                v-model="word"
-                v-on:keyup.enter="showWords()"
-            >
-            <button class="searchButton" v-on:click="showWords()"><img src="img/search.png"></button>
-            </span>
-
-        </p>
-        <div v-show="loading" class="loader container">cargando...</div>
-        <div v-show="!loading"></div>
-        <p v-bind:html="wordslang"></p>
-
-        <div v-if="isResults" class="results container">
-            <div 
-            class="meanings">
-                <p><span class="title">
-                
-                    <router-link 
-                        
-                        :to="{
-                            path: 'word',
-                            query:{
-                                id: jumpToId ,
-                                lang: jumpToLang
-                           }
-                        }">
-                        
-                    [ {{ word }} ]</router-link></span> 
-                    <span>{{ wordslang }}</span> <span v-if="wtype" class="wtype">{{ wtype }}</span></p>
-                <p>
-                    <span 
-                        class="meaning" 
-                        v-for="meaning in meanings" 
-                        :key="meaning.id"
-                    >
-                        <span class="meaningWord" v-on:click="research(meaning.id, meaning.word)">{{ meaning.word }}</span>
-                        <span v-if="userPriviledge > 0" class="hiddenControl">
-                            <span class="pointer" v-on:click="deleteRelation(meaning.id)">delete</span>
-                        </span>
-                    </span>
-                </p>
+            <div v-if="wordToSearch">
+                <search-results
+                    v-bind:wordToSearch="wordToSearch"
+                ></search-results>
             </div>
 
+
         </div>
+
         <div class="references container">
 
             <word-suggestions
@@ -78,15 +40,16 @@
     import TheModal from './modules/TheModal.vue';
     import TheControl from './modules/TheControl.vue';
     import InputForm from './modules/InputForm.vue';
-    import SentWord from './modules/SentWord.vue';
     import WordSuggestions from './dictionary/WordSuggestions.vue';
+    import SearchResults from './modules/SearchResults.vue';
     export default {
         components:{
             TheModal,
             TheControl,
             InputForm,
-            SentWord,
-            WordSuggestions
+            WordSuggestions,
+            SearchResults
+
         },
         props:[
 /*            'isUser',*/
@@ -95,17 +58,13 @@
         ],
         inject:[
             'isUser',
-            'loginUser'
+        //    'loginUser'
         ],
-        emits:[
-            'catchSentWord',
-            'catchResearchData',
-            'catchModalControl'
-        ],
+        emits:['catchSentWord'],
         data(){
             return{
+                /*
                 detailLink: '/word',
-                totals: 'umco',
                 word: '',
                 words: [],
                 wordslang: '',
@@ -120,19 +79,25 @@
                 resultMessage2: '',
                 loading: false,
                 loginCheck: '',
-                showModal: false,
                 mtype: '',
                 mword: '',
                 isVerb: false,
-                isSuggestions: false,
                 suggestionsSet: {},
                 isExamples: false,
-                examplesSet: {},
+                examplesSet: {},*/
+                isSuggestions: false,
+                showModal: false,
                 jumpToId: '',
-                jumpToLang: ''
+                jumpToLang: '',
+                wordToSearch: ''
             };
         },
         methods:{
+
+            sendWordToSearch(word){
+                this.wordToSearch = word;
+                console.log('vamos a buscar ' + this.wordToSearch);
+            },
 
             openModal(type){
                 this.showModal = true;
@@ -151,6 +116,8 @@
             },
 
             ///////////////////////////////////キーワードから結果を取得////////////////////////////
+            /*
+
             async showWords(){
                 this.loading = true;
                 
@@ -234,7 +201,12 @@
 
             },
 
+            */
+
+
+
             /////////////////////////////IDから結果を取得////////////////////////////////
+            /*
             async research(id, word, langv){
                 //初期化
 
@@ -324,7 +296,7 @@
                 this.loading = false;
 
             },
-
+            */
             //動詞として登録
             async setAsVerb(){
                 const setTypeData = {
@@ -415,34 +387,6 @@
     }
     .meaning:hover .hiddenControl{
         display: block;
-    }
-    .form-field{
-        display: block;
-        background-color: #efefef;
-        width: 85%;
-        max-width: 640px;
-        margin: 0 auto;
-        padding: 0;
-        height: 3rem;
-    }
-    .form-field button{
-        border: none;
-    }
-    .form-field button img{
-        width: 32px;
-        line-height: 0;
-    }
-    input.keyword{
-        width: 85%;
-        border: none;
-        height: 3rem;
-        font-size: 1.5rem;
-        border-radius: 5px 5px 0 0;
-        line-height: 3rem;
-        background: none;
-    }
-    input.keyword:focus{
-        outline: none !important;
     }
     .title{
         font-size: 1.8rem;

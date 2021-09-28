@@ -83,10 +83,31 @@ export default {
 <style scoped>
     footer{
         --bg-opacity: 1;
-        background-color: #2d3748;
+/*        background-color: #2d3748; */
         background-color: rgba(45,55,72,var(--bg-opacity));
+        background-color: whitesmoke;
         padding: 1.2rem 0 0;
         font-size: 0.9rem;
+    }
+    p{
+        margin: 0 auto;
+        color: #292929;
+    }
+    h3{
+        color: #fff;
+        color: #292929;
+        margin: 1.2rem 0 0.5rem;
+    }
+    .container{
+        margin: 1.2rem auto;
+    }
+    dl{
+        margin-left: 1rem;
+        color: #292929;
+    }
+    dd{
+        margin-left: 1rem;
+        color: #292929;
     }
     .copyright{
         
@@ -95,21 +116,10 @@ export default {
         text-align: center;
         padding: 0.2rem 0;
         font-size: 0.8rem;
-    }
-    p{
-        margin: 0 auto;
-    }
-    h3{
         color: #fff;
-        margin: 1.2rem 0 0.5rem;
     }
-    .container{
-        margin: 1.2rem auto;
-    }
-    dl{
-        margin-left: 1rem;
-    }
-    dd{
-        margin-left: 1rem;
+    .copyright p{
+
+        color: #fff;
     }
 </style>

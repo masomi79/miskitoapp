@@ -26,3 +26,5 @@ Route::post('/getExamples', 'App\Http\Controllers\API\DicController@getExamples'
 Route::post('/getMeanings', 'App\Http\Controllers\API\DicController@getMeanings');
 // Relationを削除
 Route::post('/deleteRelation', 'App\Http\COntrollers\API\DIcController@deleteRelation');
+// 単語を受け取り、IDを返す
+Route::post('/getIdFromWord', 'App\Http\Controllers\API\DicController@getIdFromWord');
