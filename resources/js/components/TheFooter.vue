@@ -84,8 +84,8 @@ export default {
     footer{
         --bg-opacity: 1;
 /*        background-color: #2d3748; */
-        background-color: rgba(45,55,72,var(--bg-opacity));
-        background-color: whitesmoke;
+/*        background-color: rgba(45,55,72,var(--bg-opacity));
+        background-color: whitesmoke; */
         padding: 1.2rem 0 0;
         font-size: 0.9rem;
     }

@@ -47,6 +47,12 @@
 </script>
 
 <style>
+  header{
+    background-color: #f8fafc;
+  }
+  footer{
+    background-color: white;
+  }
   button{
     border-radius: 20px;
     padding: 0.5rem 1.5rem;
