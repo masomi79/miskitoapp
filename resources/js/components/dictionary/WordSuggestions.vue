@@ -1,13 +1,47 @@
 <template>
     <h3>Talvez Busca ... </h3>
-    <ul>
+    <ul 
+        v-if="miqSuggestionsSet"
+        class="suggestions-set">
         <li
-            v-for="suggestion in suggestionsSet"
-            v-bind:key="suggestion.id"
+            v-for="miqSuggestion in miqSuggestionsSet"
+            v-bind:key="miqSuggestion.id"
         >
             <span
                 class="pointer"
-            >{{ suggestion }}</span>
+            >
+                <router-link 
+                    :to="{
+                        path: 'word',
+                        query:{
+                            id: miqSuggestion.id,
+                            lang: miqSuggestion.lang
+                        }
+                    }">{{ miqSuggestion.miskitoWord }}
+                </router-link>
+            </span>
+        </li>
+    </ul>
+    <ul
+        v-if="espSuggestionsSet"
+        class="suggestions-set">
+        <li
+            v-for="espSuggestion in espSuggestionsSet"
+            v-bind:key="espSuggestion.id"
+        >
+            <span
+                class="pointer"
+            >
+                <router-link 
+                    :to="{
+                        path: 'word',
+                        query:{
+                            id: espSuggestion.id,
+                            lang: espSuggestion.lang
+                        }
+                    }">{{ espSuggestion.spanishWord }}
+                </router-link>
+            </span>
         </li>
     </ul>
 </template>
@@ -16,7 +50,8 @@ export default {
     props:['wordToSearch'],
     data(){
         return{
-            suggestionsSet: ''
+            miqSuggestionsSet: '',
+            espSuggestionsSet: ''
         }
     },
     created(){
@@ -30,20 +65,47 @@ export default {
     methods:{
         // Suggestionsを作成する
         async getSuggestionslist(word){
-            console.log('make suggestions for ' + word);
+            // console.log('make suggestions for ' + word);
 
             // データセットの生成
             const sugData = {
                 'word' : word
             }
         
+        // APIの値を格納する。後で言語別に分ける
+        let suggestionsData = '';
+
         // 取得
             await axios.post('/api/getSuggestionsFromWord', sugData)
-                .then(response => this.suggestionsSet = response.data)
+                .then(response => suggestionsData = response.data)
                 .catch(error => console.log(error));
 
-            console.log('suggestions are ' + this.suggestionsSet);
+            const miqSuggestions = suggestionsData['miq'];
+            const espSuggestions = suggestionsData['esp'];
+
+            // router-linkのためにlangキーを追加する
+            if(miqSuggestions.length > 0){
+                miqSuggestions.forEach((e)=>{
+                    e.lang = 'miq';
+                });
+                this.miqSuggestionsSet = miqSuggestions;
+            }
+
+            if(espSuggestions.length > 0){
+                espSuggestions.forEach((m)=>{
+                    m.lang = 'esp';
+                });
+                this.espSuggestionsSet = espSuggestions;
+            }
         }
     }
 }
 </script>
+<style scoped>
+    .suggestions-set{
+        margin: 0 auto 1rem;
+    }
+    h3{
+        margin-top: 1rem;
+    }
+</style>
