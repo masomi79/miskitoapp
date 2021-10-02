@@ -58,7 +58,7 @@
     background-color: white;
   }
   button{
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 0.5rem 1.5rem;
     margin: 0.3rem;
     border: none;
@@ -71,8 +71,10 @@
     line-height: 0;
   }
   button.normal{
-    background: green;
     color: white;
+    background-color: #2C974A;
+    border-color: lightgray;
+    box-shadow: lightgray,lightgray;
   }
   button.adelante{
     background: green;

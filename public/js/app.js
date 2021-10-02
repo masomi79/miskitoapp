@@ -17923,13 +17923,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     wordToSearch: $data.wordToSearch
   }, null, 8
   /* PROPS */
-  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$props.loginUser ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_the_control, {
-    key: 0,
+  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_the_control, {
     targetWord: _ctx.mword,
     onCatchModalControl: $options.openModal
   }, null, 8
   /* PROPS */
-  , ["targetWord", "onCatchModalControl"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])], 64
+  , ["targetWord", "onCatchModalControl"])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -18737,24 +18736,15 @@ var _hoisted_1 = {
   "class": "controlPannel"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Cotrol panel", -1
-/* HOISTED */
-);
-
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     "class": "normal",
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $options.sendModalControl('newWord');
     })
-  }, "nueva palabra"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "normal",
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $options.sendModalControl('newExample');
-    })
-  }, "Nuevo Ejemplo Para Esta Palabra")]);
+  }, "nueva palabra")]);
 });
 
 /***/ }),
@@ -23649,7 +23639,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nheader{\n    background-color: #f8fafc;\n    border-bottom: solid 1px lightgray;\n}\nfooter{\n    background-color: white;\n}\n.copyright{\n    background-color: white;\n}\nbutton{\n    border-radius: 20px;\n    padding: 0.5rem 1.5rem;\n    margin: 0.3rem;\n    border: none;\n}\nbutton:hover{\n    opacity: 0.7;\n}\nbutton.searchButton{\n        padding: 0;\n    line-height: 0;\n}\nbutton.normal{\n    background: green;\n    color: white;\n}\nbutton.adelante{\n    background: green;\n    color: white;\n}\nbutton.negative{\n    background: gray;\n    color: #333;\n}\nh1,h2,h3,h4,h5,h6,\n  p,a,\n  ul,li,dl,dt,dd{\n    margin: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nheader{\n    background-color: #f8fafc;\n    border-bottom: solid 1px lightgray;\n}\nfooter{\n    background-color: white;\n}\n.copyright{\n    background-color: white;\n}\nbutton{\n    border-radius: 10px;\n    padding: 0.5rem 1.5rem;\n    margin: 0.3rem;\n    border: none;\n}\nbutton:hover{\n    opacity: 0.7;\n}\nbutton.searchButton{\n        padding: 0;\n    line-height: 0;\n}\nbutton.normal{\n    color: white;\n    background-color: #2C974A;\n    border-color: lightgray;\n    box-shadow: lightgray,lightgray;\n}\nbutton.adelante{\n    background: green;\n    color: white;\n}\nbutton.negative{\n    background: gray;\n    color: #333;\n}\nh1,h2,h3,h4,h5,h6,\n  p,a,\n  ul,li,dl,dt,dd{\n    margin: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

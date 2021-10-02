@@ -1,8 +1,6 @@
 <template>
         <div class="controlPannel">
-            <p>Cotrol panel</p>
             <button class="normal" v-on:click="sendModalControl('newWord')">nueva palabra</button>
-            <button class="normal" v-on:click="sendModalControl('newExample')">Nuevo Ejemplo Para Esta Palabra</button>
         </div>
 </template>
 <style scoped>

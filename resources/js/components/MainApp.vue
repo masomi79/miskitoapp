@@ -23,7 +23,6 @@
         <div>
 
             <the-control
-                v-if="loginUser"
                 v-bind:targetWord="mword"
                 v-on:catchModalControl="openModal"
             ></the-control>
