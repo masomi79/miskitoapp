@@ -49,8 +49,12 @@
 <style>
   header{
     background-color: #f8fafc;
+    border-bottom: solid 1px lightgray;
   }
   footer{
+    background-color: white;
+  }
+  .copyright{
     background-color: white;
   }
   button{

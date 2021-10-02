@@ -99,7 +99,9 @@ export default {
         margin: 1.2rem 0 0.5rem;
     }
     .container{
-        margin: 1.2rem auto;
+        margin: 0 auto 1.2rem;
+        padding-top: 1.2rem;
+        border-top: solid lightgray 1px;
     }
     dl{
         margin-left: 1rem;
@@ -110,16 +112,13 @@ export default {
         color: #292929;
     }
     .copyright{
-        
+        /*
         background-color: #1a202c;
         background-color: rgba(26,32,44,1);
+        color: #fff;
+        */
         text-align: center;
         padding: 0.2rem 0;
         font-size: 0.8rem;
-        color: #fff;
-    }
-    .copyright p{
-
-        color: #fff;
     }
 </style>

@@ -17899,9 +17899,6 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   key: 0
 };
-var _hoisted_3 = {
-  "class": "references container"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_the_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("the-modal");
 
@@ -17926,7 +17923,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     wordToSearch: $data.wordToSearch
   }, null, 8
   /* PROPS */
-  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [$props.loginUser ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_the_control, {
+  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$props.loginUser ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_the_control, {
     key: 0,
     targetWord: _ctx.mword,
     onCatchModalControl: $options.openModal
@@ -23626,7 +23623,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nheader{\n    background-color: #f8fafc;\n}\nfooter{\n    background-color: white;\n}\nbutton{\n    border-radius: 20px;\n    padding: 0.5rem 1.5rem;\n    margin: 0.3rem;\n    border: none;\n}\nbutton:hover{\n    opacity: 0.7;\n}\nbutton.searchButton{\n        padding: 0;\n    line-height: 0;\n}\nbutton.normal{\n    background: green;\n    color: white;\n}\nbutton.adelante{\n    background: green;\n    color: white;\n}\nbutton.negative{\n    background: gray;\n    color: #333;\n}\nh1,h2,h3,h4,h5,h6,\n  p,a,\n  ul,li,dl,dt,dd{\n    margin: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nheader{\n    background-color: #f8fafc;\n    border-bottom: solid 1px lightgray;\n}\nfooter{\n    background-color: white;\n}\n.copyright{\n    background-color: white;\n}\nbutton{\n    border-radius: 20px;\n    padding: 0.5rem 1.5rem;\n    margin: 0.3rem;\n    border: none;\n}\nbutton:hover{\n    opacity: 0.7;\n}\nbutton.searchButton{\n        padding: 0;\n    line-height: 0;\n}\nbutton.normal{\n    background: green;\n    color: white;\n}\nbutton.adelante{\n    background: green;\n    color: white;\n}\nbutton.negative{\n    background: gray;\n    color: #333;\n}\nh1,h2,h3,h4,h5,h6,\n  p,a,\n  ul,li,dl,dt,dd{\n    margin: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23674,7 +23671,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nfooter[data-v-2a04c4de]{\n        --bg-opacity: 1;\n/*        background-color: #2d3748; */\n/*        background-color: rgba(45,55,72,var(--bg-opacity));\n        background-color: whitesmoke; */\n        padding: 1.2rem 0 0;\n        font-size: 0.9rem;\n}\np[data-v-2a04c4de]{\n        margin: 0 auto;\n        color: #292929;\n}\nh3[data-v-2a04c4de]{\n        color: #fff;\n        color: #292929;\n        margin: 1.2rem 0 0.5rem;\n}\n.container[data-v-2a04c4de]{\n        margin: 1.2rem auto;\n}\ndl[data-v-2a04c4de]{\n        margin-left: 1rem;\n        color: #292929;\n}\ndd[data-v-2a04c4de]{\n        margin-left: 1rem;\n        color: #292929;\n}\n.copyright[data-v-2a04c4de]{\n        \n        background-color: #1a202c;\n        background-color: rgba(26,32,44,1);\n        text-align: center;\n        padding: 0.2rem 0;\n        font-size: 0.8rem;\n        color: #fff;\n}\n.copyright p[data-v-2a04c4de]{\n\n        color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nfooter[data-v-2a04c4de]{\n        --bg-opacity: 1;\n/*        background-color: #2d3748; */\n/*        background-color: rgba(45,55,72,var(--bg-opacity));\n        background-color: whitesmoke; */\n        padding: 1.2rem 0 0;\n        font-size: 0.9rem;\n}\np[data-v-2a04c4de]{\n        margin: 0 auto;\n        color: #292929;\n}\nh3[data-v-2a04c4de]{\n        color: #fff;\n        color: #292929;\n        margin: 1.2rem 0 0.5rem;\n}\n.container[data-v-2a04c4de]{\n        margin: 0 auto 1.2rem;\n        padding-top: 1.2rem;\n        border-top: solid lightgray 1px;\n}\ndl[data-v-2a04c4de]{\n        margin-left: 1rem;\n        color: #292929;\n}\ndd[data-v-2a04c4de]{\n        margin-left: 1rem;\n        color: #292929;\n}\n.copyright[data-v-2a04c4de]{\n        /*\n        background-color: #1a202c;\n        background-color: rgba(26,32,44,1);\n        color: #fff;\n        */\n        text-align: center;\n        padding: 0.2rem 0;\n        font-size: 0.8rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

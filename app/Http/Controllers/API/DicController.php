@@ -55,10 +55,18 @@ class DicController extends Controller
 
         if($lang == 'miskito'){
             $rs = MiskitoWord::where('miskitoWord', '=', $word)->select('id')->get();
-            $id = $rs[0]['id'];
+            if(!empty($rs)){
+                $id = $rs[0]['id'];
+            }else{
+                $id = 'no se encuentra';
+            }
         }elseif($lang == 'español'){
             $rs = SpanishWord::where('spanishWord', '=', $word)->select('id')->get();
-            $id = $rs[0]['id'];
+            if(!empty($rs)){
+                $id = $rs[0]['id'];
+            }else{
+                $id = 'no se encuentra';
+            }
         }else{
             $id = 'no se encuentra';
         }
