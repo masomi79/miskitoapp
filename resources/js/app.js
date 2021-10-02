@@ -38,7 +38,7 @@ import { createApp } from 'vue';
 
 import App from './components/App.vue';
 import router from './router.js';
-import store from './store/index.js';
+// import store from './store/index.js';
 
 const app = createApp(
     {
@@ -48,6 +48,6 @@ const app = createApp(
 });
 
 app.use(router);
-app.use(store);
+// app.use(store);
 
 app.mount('#app');
