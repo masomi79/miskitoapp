@@ -18999,10 +18999,17 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "container"
 };
-var _hoisted_3 = {
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "sharethis-inline-share-buttons"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
   "class": "container"
 };
-var _hoisted_4 = {
+var _hoisted_5 = {
   key: 0
 };
 
@@ -19021,11 +19028,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     userPriviledge: $data.userPriviledge
   }, null, 8
   /* PROPS */
-  , ["id", "lang", "userPriviledge"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form, {
+  , ["id", "lang", "userPriviledge"])]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form, {
     onCatchSentWord: $options.sendWordToSearch
   }, null, 8
   /* PROPS */
-  , ["onCatchSentWord"]), $data.wordToSearch ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_search_results, {
+  , ["onCatchSentWord"]), $data.wordToSearch ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_search_results, {
     wordToSearch: $data.wordToSearch
   }, null, 8
   /* PROPS */

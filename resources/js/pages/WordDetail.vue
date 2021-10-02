@@ -7,6 +7,7 @@
                 v-bind:userPriviledge="userPriviledge"
             ></word-base>
         </div>
+        <div class="sharethis-inline-share-buttons"></div>
         <div class="container">
             <input-form
                 v-on:catchSentWord="sendWordToSearch"
