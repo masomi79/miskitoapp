@@ -106,6 +106,6 @@ export default {
         margin: 0 auto 1rem;
     }
     h3{
-        margin-top: 1rem;
+        margin-top: 1.6rem;
     }
 </style>

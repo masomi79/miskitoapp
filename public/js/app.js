@@ -18207,29 +18207,61 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
+var _hoisted_2 = {
+  "class": "related-word pointer"
+};
+
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.relatedTermsSet, function (relatedTerm) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       key: relatedTerm.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-      "class": "related-word pointer",
-      onClick: function onClick($event) {
-        return $options.sendResearchData(relatedTerm.id, relatedTerm.word, 'miskito');
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: {
+        path: 'word',
+        query: {
+          id: relatedTerm.id,
+          lang: 'miq'
+        }
       }
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(relatedTerm.word), 9
-    /* TEXT, PROPS */
-    , ["onClick"]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(relatedTerm.meanings, function (meaning, index) {
+    }, {
+      "default": _withId(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(relatedTerm.word), 1
+        /* TEXT */
+        )];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["to"])]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(relatedTerm.meanings, function (meaning, index) {
       return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", {
         "class": "related-meaning pointer",
-        key: index,
-        onClick: function onClick($event) {
-          return $options.sendResearchData(meaning.id, meaning.word);
+        key: index
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+        to: {
+          path: 'word',
+          query: {
+            id: meaning.id,
+            lang: 'esp'
+          }
         }
-      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(meaning.word), 9
-      /* TEXT, PROPS */
-      , ["onClick"]);
+      }, {
+        "default": _withId(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(meaning.word), 1
+          /* TEXT */
+          )];
+        }),
+        _: 2
+        /* DYNAMIC */
+
+      }, 1032
+      /* PROPS, DYNAMIC_SLOTS */
+      , ["to"])]);
     }), 128
     /* KEYED_FRAGMENT */
     ))]);
@@ -23706,7 +23738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh3[data-v-148cdc48]{\n        margin: 1rem 0 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh3[data-v-148cdc48]{\n        margin: 1.6rem 0 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23730,7 +23762,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh3[data-v-7d837224]{\n        margin-top: 1rem;\n}\ndt[data-v-7d837224],dd[data-v-7d837224]{\n        text-transform: lowercase;\n}\ndt[data-v-7d837224]{\n        font-size: 1.3rem;\n        font-weight: bold;\n}\ndd[data-v-7d837224]{\n        padding-left: 1rem;\n        font-size: 1rem;\n}\ndt[data-v-7d837224]:first-letter,dd[data-v-7d837224]:first-letter{\n        text-transform: uppercase;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh3[data-v-7d837224]{\n        margin-top: 1.6rem;\n}\ndt[data-v-7d837224],dd[data-v-7d837224]{\n        text-transform: lowercase;\n}\ndt[data-v-7d837224]{\n        font-size: 1.3rem;\n        font-weight: bold;\n}\ndd[data-v-7d837224]{\n        padding-left: 1rem;\n        font-size: 1rem;\n}\ndt[data-v-7d837224]:first-letter,dd[data-v-7d837224]:first-letter{\n        text-transform: uppercase;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23754,7 +23786,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh3[data-v-6bbbc1a8]{\n        margin-top: 1rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh3[data-v-6bbbc1a8]{\n        margin-top: 1.6rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23802,7 +23834,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.suggestions-set[data-v-dad1ab12]{\n        margin: 0 auto 1rem;\n}\nh3[data-v-dad1ab12]{\n        margin-top: 1rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.suggestions-set[data-v-dad1ab12]{\n        margin: 0 auto 1rem;\n}\nh3[data-v-dad1ab12]{\n        margin-top: 1.6rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

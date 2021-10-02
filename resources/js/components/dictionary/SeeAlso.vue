@@ -6,15 +6,32 @@
             v-bind:key = relatedTerm.id
         >
             <span 
-                class="related-word pointer"
-                v-on:click="sendResearchData(relatedTerm.id, relatedTerm.word, 'miskito')"
-            >{{ relatedTerm.word }}</span>
+                class="related-word pointer">
+                <router-link
+                    :to="{
+                        path: 'word',
+                        query:{
+                            id: relatedTerm.id,
+                            lang: 'miq'
+                        }
+                    }">{{ relatedTerm.word }}
+                </router-link>
+            </span>
             <span
                 class="related-meaning pointer"
                 v-for="(meaning, index) in relatedTerm.meanings"
                 v-bind:key="index"
-                v-on:click="sendResearchData(meaning.id, meaning.word)"
-            >{{ meaning.word }}</span>
+            >
+                <router-link
+                    :to="{
+                        path: 'word',
+                        query:{
+                            id: meaning.id,
+                            lang: 'esp'
+                        }
+                    }">{{ meaning.word }}
+                </router-link>
+            </span>
         </li>
     </ul>
 </template>
@@ -33,6 +50,6 @@ export default {
 <style scoped>
 
     h3{
-        margin-top: 1rem;
+        margin-top: 1.6rem;
     }
 </style>
