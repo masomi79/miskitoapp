@@ -19141,7 +19141,13 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.createRouter)({
     path: '/word',
     component: _pages_WordDetail_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     props: true
-  }]
+  }],
+  scrollBehavior: function scrollBehavior() {
+    return {
+      x: 0,
+      y: 0
+    };
+  }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
