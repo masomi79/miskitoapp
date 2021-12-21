@@ -90,4 +90,10 @@
   ul,li,dl,dt,dd{
     margin: 0;
   }
+  .tar{
+    text-align: right;
+  }
+  .tal{
+    text-align: left;
+  }
 </style>
