@@ -1,21 +1,35 @@
 <template>
-        <div class="controlPannel">
-            <button class="normal" v-on:click="sendModalControl('newWord')">nueva palabra</button>
+    <p class="tal"><span v-on:click="toggleControl()">Control</span></p>
+    <transition name="fade">
+        <div v-if="showControl">
+            <div class="control-pannel">
+                <button v-on:click="sendModalControl('newWord')">nueva palabra</button>
+            </div>
         </div>
+    </transition>
 </template>
-<style scoped>
-    .controlPannel{
-        text-align: center;
-        padding: 2rem 0;
-    }
-</style>
 <script>
     export default{
+        data(){
+            return{
+                showControl: false,
+            }
+        },
         emits : ['catchModalControl'],
         methods:{
             sendModalControl(type){
                 this.$emit('catchModalControl',type);
-            }
+            },
+            toggleControl(){
+                this.showControl = !this.showControl;
+            },
         }
     }
 </script>
+<style scoped>
+    .control-pannel{
+        padding: 2rem;
+        background-color: #f8fafc;
+        text-align: left;
+    }
+</style>

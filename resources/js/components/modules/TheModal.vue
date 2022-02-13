@@ -1,4 +1,5 @@
 <template>
+        <transition name="fade">
     <teleport to="body">
         <div class="modal">
             <div
@@ -51,6 +52,7 @@
             </div>
         </div>
     </teleport>
+        </transition>
 </template>
 <script>
 export default {
