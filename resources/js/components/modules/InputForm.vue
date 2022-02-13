@@ -9,6 +9,7 @@
             >
             <button class="searchButton" v-on:click="sendWord(word)"><img src="img/search.png"></button>
         </span>
+        <button class="normal" v-on:click="sendWord(word)">buscar</button>
     </div>
 </template>
 <script>

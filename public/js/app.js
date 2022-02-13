@@ -16593,29 +16593,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   emits: ['catchSentWord'],
   data: function data() {
     return {
-      /*
-      detailLink: '/word',
-      word: '',
-      words: [],
-      wordslang: '',
-      wtype: '',
-      opstlang: '',
-      isResults: false,
-      resultsSet: {},
-      meanings: [],
-      buttonTitle: 'search',
-      phmessage: 'buscar en el disccionario',
-      resultMessage1: '',         
-      resultMessage2: '',
-      loading: false,
-      loginCheck: '',
-      mtype: '',
-      mword: '',
-      isVerb: false,
-      suggestionsSet: {},
-      isExamples: false,
-      examplesSet: {},
-      isSuggestions: false,*/
       showModal: false,
       jumpToId: '',
       jumpToLang: '',
@@ -16636,148 +16613,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     umcoWord: function umcoWord(sentWord) {// console.log('sent word is ' + sentWord);
     },
-    ///////////////////////////////////キーワードから結果を取得////////////////////////////
-
-    /*
-     async showWords(){
-        this.loading = true;
-        
-        //初期化
-        this.isResults = false;
-        this.isRelated = false;
-        this.isSuggestions = false;
-        this.isVerb = false;
-        this.isExamples = false;
-        //this.wordslang = "no se encuentra";
-         this.wtype = '';
-        this.resultsSet = '';
-        this.relatedTermsSet = '';
-        const dataForLang = {'word': this.word}
-        await axios.post('/data/checkWordsLang', dataForLang)
-            .then(response => this.wordslang = response.data)
-            .catch(error => console.log(error));
-          this.words = this.word.split(" ");
-        const dataForSet = {
-            'word' : this.word,
-            'words' : this.words,
-            'lang' : this.wordslang
-        }
-        await axios.post('/data/getSearchResult', dataForSet)
-            .then(response => this.resultsSet = response.data)
-            .catch(error => console.log(error));
-         //結果あり
-        if(Object.keys(this.resultsSet).length > 0){ this.isResults = true}
-         this.jumpToId = this.resultsSet.match;
-        if(this.resultsSet.lang == 'miskito'){
-            this.jumpToLang = 'miq';
-        }else if(this.resultsSet.lang == 'español'){
-            this.jumpToLang = 'esp';
-        }
-         console.log(this.resultsSet);
-        //訳語の一覧
-        this.meanings = this.resultsSet.meanings
-          if(this.resultsSet.type){
-            this.wtype = this.resultsSet.type;
-        }
-        
-        //  動詞かどうかの判定、活用の一覧 
-        if(this.resultsSet.type == 'v'){
-            this.isVerb = true;
-        }else{
-            this.isVerb = false;
-        }
-         //Miskito語の場合関連語句の一覧を作成する
-        if(this.wordslang == 'miskito'){
-            // 関連語句の生成
-             // Suggestionsを作成する
-                // データセットの生成
-                const dataForSuggestions = {
-                'word' : this.word
-                }
-                // 取得
-                await axios.post('/data/getSuggestions', dataForSuggestions)
-                    .then(response => this.suggestionsSet = response.data)
-                    .catch(error => console.log(error));
-                 
-                
-                // ステータスの変更
-                if(Object.keys(this.suggestionsSet).length > 0){ this.isSuggestions = true}
-         }
-         // nothing more to load
-        this.loading = false;
-     },
-     */
-    /////////////////////////////IDから結果を取得////////////////////////////////
-
-    /*
-    async research(id, word, langv){
-        //初期化
-         this.loading = true;
-         this.isResults = false;
-        this.isRelated = false;
-        this.isSuggestions = false;
-        this.isVerb = false;
-        this.isExamples = false;
-         this.resultsSet = '';
-        this.relatedTermsSet = ''
-        this.wtype = '';
-         if(langv){
-            this.wordslang = langv;
-        }else{
-             if(this.wordslang == 'miskito'){ 
-                this.wordslang = 'español';
-            }else{ 
-                this.wordslang = 'miskito';
-            }
-         }
-         
-         const dataForSerachById = {
-            'lang' : this.wordslang,
-            'id' : id,
-            'word' : word
-        }
-        
-             await axios.post('/data/getSearchResultById', dataForSerachById)
-            .then(response => this.resultsSet = response.data)
-            .catch(error => console.log(error));
-         //結果あり
-        if(this.resultsSet){ 
-            this.isResults = true
-            // console.log(this.resultsSet);
-        }
-          this.word = this.resultsSet.cword
-         //訳語の一覧
-        this.meanings = this.resultsSet.meanings;
-         if(this.resultsSet.type){
-            this.wtype = this.resultsSet.type;
-        }
-         //動詞かどうかの判定
-        if(this.resultsSet.type == 'v'){
-            this.isVerb = true;
-         }else{
-            this.isVerb = false;
-        }
-          //Miskito語の場合
-        if(this.wordslang == 'miskito'){
-            // 関連語句の一覧を作成する
-                // 関連語句取得用のデータセットを生成
-                this.words = this.word.split(" ");
-                const dataForRelatedTerms = {
-                        'words' : this.words
-                };
-                // 関連語句セットの生成
-                await axios.post('/data/getRelatedTerms', dataForRelatedTerms)
-                .then(response => this.relatedTermsSet = response.data)
-                .catch(error => console.log(error));
-                //ステータスの変更
-                if(Object.keys(this.relatedTermsSet).length > 0){ this.isRelated = true}
-         }
-             
-         
-        // nothing more to load
-        this.loading = false;
-     },
-    */
     //動詞として登録
     setAsVerb: function setAsVerb() {
       var _this = this;
@@ -16808,10 +16643,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     }
-  },
-  created: function created() {// console.log(this.isUser);
-    // console.log('id:' + this.id);
-    // console.log('lang:' + this.lang);
   }
 });
 
@@ -16845,7 +16676,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: ['isUser', 'loginUser', 'loginUserName'],
   data: function data() {
     return {
-      now: '2021',
+      now: '2022',
       loginUrl: '/login',
       registerUrl: '/register',
       logoutUrl: '/logout'
@@ -17606,10 +17437,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      showControl: false
+    };
+  },
   emits: ['catchModalControl'],
   methods: {
     sendModalControl: function sendModalControl(type) {
       this.$emit('catchModalControl', type);
+    },
+    toggleControl: function toggleControl() {
+      this.showControl = !this.showControl;
     }
   }
 });
@@ -17944,12 +17783,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     wordToSearch: $data.wordToSearch
   }, null, 8
   /* PROPS */
-  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_the_control, {
+  , ["wordToSearch"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_the_control, {
     targetWord: _ctx.mword,
     onCatchModalControl: $options.openModal
   }, null, 8
   /* PROPS */
-  , ["targetWord", "onCatchModalControl"])])])], 64
+  , ["targetWord", "onCatchModalControl"])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -18636,7 +18475,12 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.sendWord($data.word);
     })
-  }, [_hoisted_3])])]);
+  }, [_hoisted_3])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+    "class": "normal",
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return $options.sendWord($data.word);
+    })
+  }, "buscar")]);
 });
 
 /***/ }),
@@ -18806,18 +18650,38 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-33cfdadf");
 
 var _hoisted_1 = {
-  "class": "controlPannel"
+  "class": "tal"
+};
+var _hoisted_2 = {
+  key: 0
+};
+var _hoisted_3 = {
+  "class": "control-pannel"
 };
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "normal",
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $options.sendModalControl('newWord');
+      return $options.toggleControl();
     })
-  }, "nueva palabra")]);
+  }, "Control")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "fade"
+  }, {
+    "default": _withId(function () {
+      return [$data.showControl ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        onClick: _cache[2] || (_cache[2] = function ($event) {
+          return $options.sendModalControl('newWord');
+        })
+      }, "nueva palabra")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })], 64
+  /* STABLE_FRAGMENT */
+  );
 });
 
 /***/ }),
@@ -18924,67 +18788,76 @@ var _hoisted_20 = {
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
-    to: "body"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [$props.modalType == 'newWord' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $data.wordData.newMiskito = $event;
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "fade"
+  }, {
+    "default": _withId(function () {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
+        to: "body"
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [$props.modalType == 'newWord' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $data.wordData.newMiskito = $event;
+        }),
+        type: "text",
+        placeholder: "nueva palabra en miskito"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.wordData.newMiskito]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+          return $data.wordData.newSpanish = $event;
+        }),
+        type: "text",
+        placeholder: "nueva palabra en español"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.wordData.newSpanish]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "class": "adelante",
+        onClick: _cache[3] || (_cache[3] = function ($event) {
+          return $options.sendNewWords($data.wordData);
+        })
+      }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "class": "negative",
+        onClick: _cache[4] || (_cache[4] = function ($event) {
+          return _ctx.$emit('close');
+        })
+      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.modalType == 'newExample' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Añadir un nuevo ejemplo para \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.targetWord) + "\"", 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $data.exampleData.newExampleMiq = $event;
+        }),
+        type: "text",
+        placeholder: "nuevo ejemplo de oración en miskito"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleMiq]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+          return $data.exampleData.newExampleEsp = $event;
+        }),
+        type: "text",
+        placeholder: "nuevo ejemplo de oración en español"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleEsp]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "class": "adelante",
+        onClick: _cache[7] || (_cache[7] = function ($event) {
+          return $options.sendNewEjemplo($data.exampleData);
+        })
+      }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "class": "negative",
+        onClick: _cache[8] || (_cache[8] = function ($event) {
+          return _ctx.$emit('close');
+        })
+      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]))];
     }),
-    type: "text",
-    placeholder: "nueva palabra en miskito"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.wordData.newMiskito]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $data.wordData.newSpanish = $event;
-    }),
-    type: "text",
-    placeholder: "nueva palabra en español"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.wordData.newSpanish]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "adelante",
-    onClick: _cache[3] || (_cache[3] = function ($event) {
-      return $options.sendNewWords($data.wordData);
-    })
-  }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "negative",
-    onClick: _cache[4] || (_cache[4] = function ($event) {
-      return _ctx.$emit('close');
-    })
-  }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.modalType == 'newExample' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Añadir un nuevo ejemplo para \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.targetWord) + "\"", 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-      return $data.exampleData.newExampleMiq = $event;
-    }),
-    type: "text",
-    placeholder: "nuevo ejemplo de oración en miskito"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleMiq]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
-      return $data.exampleData.newExampleEsp = $event;
-    }),
-    type: "text",
-    placeholder: "nuevo ejemplo de oración en español"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleEsp]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "adelante",
-    onClick: _cache[7] || (_cache[7] = function ($event) {
-      return $options.sendNewEjemplo($data.exampleData);
-    })
-  }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "negative",
-    onClick: _cache[8] || (_cache[8] = function ($event) {
-      return _ctx.$emit('close');
-    })
-  }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]);
+    _: 1
+    /* STABLE */
+
+  });
 });
 
 /***/ }),
@@ -23705,7 +23578,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nheader{\n    background-color: #f8fafc;\n    border-bottom: solid 1px lightgray;\n}\nfooter{\n    background-color: white;\n}\n.copyright{\n    background-color: white;\n}\nbutton{\n    border-radius: 10px;\n    padding: 0.5rem 1.5rem;\n    margin: 0.3rem;\n    border: none;\n}\nbutton:hover{\n    opacity: 0.7;\n}\nbutton.searchButton{\n        padding: 0;\n    line-height: 0;\n}\nbutton.normal{\n    color: white;\n    background-color: #2C974A;\n    border-color: lightgray;\n    box-shadow: lightgray,lightgray;\n}\nbutton.adelante{\n    background: green;\n    color: white;\n}\nbutton.negative{\n    background: gray;\n    color: #333;\n}\nh1,h2,h3,h4,h5,h6,\n  p,a,\n  ul,li,dl,dt,dd{\n    margin: 0;\n}\n.tar{\n    text-align: right;\n}\n.tal{\n    text-align: left;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nheader{\n    background-color: #f8fafc;\n    border-bottom: solid 1px lightgray;\n}\nfooter{\n    background-color: white;\n}\n.copyright{\n    background-color: white;\n}\nbutton{\n    border-radius: 10px;\n    padding: 0.5rem 1.5rem;\n    margin: 0.3rem;\n    border: none;\n}\nbutton:hover{\n    opacity: 0.7;\n}\nbutton.searchButton{\n        padding: 0;\n    line-height: 0;\n}\nbutton.normal{\n    color: white;\n    background-color: #2C974A;\n    border-color: lightgray;\n    box-shadow: lightgray,lightgray;\n}\nbutton.adelante{\n    background: #2C974A;\n    color: white;\n}\nbutton.negative{\n    background: gray;\n    color: #333;\n}\nh1,h2,h3,h4,h5,h6,\n  p,a,\n  ul,li,dl,dt,dd{\n    margin: 0;\n}\n.tar{\n    text-align: right;\n}\n.tal{\n    text-align: left;\n}\n.fade-enter-active, \n    .fade-leave-active{\n        transition: opacity .5s ease;\n}\n.fade-enter-from,\n    .fade-leave-to{\n        opacity: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23729,7 +23602,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na{\n    color: #1d68a7;\n    text-decoration: none;\n}\n.pointer:hover{\n        cursor: pointer;\n        text-decoration: underline;\n}\n.hiddenControl{\n        display: none;\n        position: absolute;\n        bottom: -30px;\n        right: -10px;\n        background: #eee;\n        padding: 0 0.2rem;\n}\n.loader{\n        padding: 1rem 15px;\n        text-align: left;\n}\n.verbs-conjugations table,\n    .related{\n        padding: 2rem 15px 0;\n}\n.diccionario{\n        text-align: center;\n        padding: 5rem 5% 5rem;\n        background-color: #fff;\n        color: #333;\n}\n.diccionario p{\n        margin: 0;\n}\n.results,\n    .references{\n        text-align: left;\n        padding-top: 2.1rem;\n        /* max-width: 1140px; */\n        margin: 0 auto;\n}\n.results h3{\n        margin-top: 2rem;\n}\n.meaning{\n       display: inline-block;\n       padding-right: .8em; \n       position: relative;\n}\n.meaning::after{\n        display: block;\n        position: absolute;\n        right: 10px;\n        bottom: -1px;\n        content: \",\"\n}\n.meaning:last-child{\n        padding-right: 0;\n}\n.meaning:last-child:after{\n        display: none;\n}\n.meaning:hover .meaningWord{\n        cursor: pointer;\n        text-decoration: underline;\n}\n.meaning:hover .hiddenControl{\n        display: block;\n}\n.title{\n        font-size: 1.8rem;\n}\ntd{\n        border: solid 1px #4a5568;\n        padding: 0.4rem;\n}\n.wtype{\n        border: solid 1px #333;\n        border-radius: 3px;\n        padding: 0 0.4rem;\n        font-size: 0.8rem;\n        line-height: 0;\n}\n.related-word{\n        position: relative;\n        padding-right: 1rem;\n}\n.related-word:after{\n        position: absolute;\n        content: \"...\";\n        bottom: 0;\n        right: 0;\n}\n.related-meaning{\n        position: relative;\n        padding-left: 0.8rem;\n}\n.related-meaning:after{\n        position: absolute;\n        content: \",\";\n        right: -4px;\n        bottom: -1px;\n}\n.related-meaning:last-child:after{\n        content: \"\";\n}\n.control-panel{\n        padding: 3rem  0 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na{\n    color: #1d68a7;\n    text-decoration: none;\n}\n.pointer:hover{\n        cursor: pointer;\n        text-decoration: underline;\n}\n.hiddenControl{\n        display: none;\n        position: absolute;\n        bottom: -30px;\n        right: -10px;\n        background: #eee;\n        padding: 0 0.2rem;\n}\n.loader{\n        padding: 1rem 15px;\n        text-align: left;\n}\n.verbs-conjugations table,\n    .related{\n        padding: 2rem 15px 0;\n}\n.diccionario{\n        text-align: center;\n        padding: 5rem 5% 5rem;\n        background-color: #fff;\n        color: #333;\n}\n.diccionario p{\n        margin: 0;\n}\n.results,\n    .references{\n        text-align: left;\n        padding-top: 2.1rem;\n        /* max-width: 1140px; */\n        margin: 0 auto;\n}\n.results h3{\n        margin-top: 2rem;\n}\n.meaning{\n       display: inline-block;\n       padding-right: .8em; \n       position: relative;\n}\n.meaning::after{\n        display: block;\n        position: absolute;\n        right: 10px;\n        bottom: -1px;\n        content: \",\"\n}\n.meaning:last-child{\n        padding-right: 0;\n}\n.meaning:last-child:after{\n        display: none;\n}\n.meaning:hover .meaningWord{\n        cursor: pointer;\n        text-decoration: underline;\n}\n.meaning:hover .hiddenControl{\n        display: block;\n}\n.title{\n        font-size: 1.8rem;\n}\ntd{\n        border: solid 1px #4a5568;\n        padding: 0.4rem;\n}\n.wtype{\n        border: solid 1px #333;\n        border-radius: 3px;\n        padding: 0 0.4rem;\n        font-size: 0.8rem;\n        line-height: 0;\n}\n.related-word{\n        position: relative;\n        padding-right: 1rem;\n}\n.related-word:after{\n        position: absolute;\n        content: \"...\";\n        bottom: 0;\n        right: 0;\n}\n.related-meaning{\n        position: relative;\n        padding-left: 0.8rem;\n}\n.related-meaning:after{\n        position: absolute;\n        content: \",\";\n        right: -4px;\n        bottom: -1px;\n}\n.related-meaning:last-child:after{\n        content: \"\";\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23993,7 +23866,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.controlPannel[data-v-33cfdadf]{\n        text-align: center;\n        padding: 2rem 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.control-pannel[data-v-33cfdadf]{\n        padding: 2rem;\n        background-color: #f8fafc;\n        text-align: left;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -2,10 +2,11 @@
   <the-header></the-header>
   <router-view></router-view>
   <the-footer
-    v-bind:loginUser = loginUser.userId
-    v-bind:loginUserName = loginUser.userName
-    v-bind:isUser = isUser
-    ></the-footer>
+    v-bind:loginUser = "loginUser.userId"
+    v-bind:loginUserName = "loginUser.userName"
+    v-bind:isUser = "isUser"
+    >
+  </the-footer>
 </template>
 
 <script>
@@ -77,7 +78,7 @@
     box-shadow: lightgray,lightgray;
   }
   button.adelante{
-    background: green;
+    background: #2C974A;
     color: white;
   }
   button.negative{
@@ -96,4 +97,13 @@
   .tal{
     text-align: left;
   }
+
+    .fade-enter-active, 
+    .fade-leave-active{
+        transition: opacity .5s ease;
+    }
+    .fade-enter-from,
+    .fade-leave-to{
+        opacity: 0;
+    }
 </style>

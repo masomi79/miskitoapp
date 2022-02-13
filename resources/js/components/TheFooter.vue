@@ -60,7 +60,7 @@ export default {
     ],
     data(){
         return{
-            now: '2021',
+            now: '2022',
             loginUrl : '/login',
             registerUrl : '/register',
             logoutUrl : '/logout'
