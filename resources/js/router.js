@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainApp from './components/MainApp.vue';
 import PrivacyPolicy from './pages/PrivacyPolicy.vue';
 import WordDetail from './pages/WordDetail.vue';
+import BaseHome from './pages/BaseHome.vue';
 
 const router = createRouter({
    // mode: history,
@@ -25,6 +26,11 @@ const router = createRouter({
             path: '/word',
             component: WordDetail,
             props: true
+        },
+        {
+            name: 'home',
+            path: '/home',
+            component: BaseHome
         }
     ],
     scrollBehavior(){

@@ -1,10 +1,4 @@
 <template>
-        <the-modal
-            v-if="showModal"
-            v-on:close="closeModal"
-            v-bind:modalType="mtype"
-            v-bind:targetWord="mword"
-        ></the-modal>
     <div class="diccionario">
         <div>
             <input-form
@@ -15,25 +9,22 @@
                     v-bind:wordToSearch="wordToSearch"
                 ></search-results>
             </div>
+            <the-about
+                v-if="!wordToSearch">
+            </the-about>
         </div>
-            <the-control
-                v-bind:targetWord="mword"
-                v-on:catchModalControl="openModal"
-            ></the-control>
-    </div>
+    </div>  
 </template>
 <script>
     import TheModal from './modules/TheModal.vue';
-    import TheControl from './modules/TheControl.vue';
+    import TheAbout from './TheAbout.vue';
     import InputForm from './modules/InputForm.vue';
     import SearchResults from './modules/SearchResults.vue';
     export default {
         components:{
-            TheModal,
-            TheControl,
+            TheAbout,
             InputForm,
             SearchResults
-
         },
         props:[
 /*            'isUser',*/
@@ -47,27 +38,17 @@
         emits:['catchSentWord'],
         data(){
             return{
-                showModal: false,
                 jumpToId: '',
                 jumpToLang: '',
-                wordToSearch: ''
+                wordToSearch: '',
+                loginUser: '',
+                isUser: false
             };
         },
         methods:{
             sendWordToSearch(word){
                 this.wordToSearch = word;
                 // console.log('vamos a buscar ' + this.wordToSearch);
-            },
-
-            openModal(type){
-                this.showModal = true;
-                this.mtype = type;
-                this.mword = this.word
-                // console.log('opening modal type : ' + this.mtype);
-            },
-
-            closeModal(){
-                this.showModal = false;
             },
 
 
@@ -86,7 +67,8 @@
                     .then(response => console.log(response))
                     .catch(erro => console.log(error));
             }
-        }
+        },
+
     }
 </script>
 <style>
@@ -118,7 +100,7 @@
     }
     .diccionario{
         text-align: center;
-        padding: 5rem 5% 5rem;
+        padding: 5rem 5% 0;
         background-color: #fff;
         color: #333;
 

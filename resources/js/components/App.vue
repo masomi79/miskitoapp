@@ -1,10 +1,11 @@
 <template>
   <the-header></the-header>
   <router-view></router-view>
-  <the-footer
-    v-bind:loginUser = "loginUser.userId"
-    v-bind:loginUserName = "loginUser.userName"
-    v-bind:isUser = "isUser"
+
+    <the-footer
+      v-bind:loginUser = "loginUser.userId"
+      v-bind:loginUserName = "loginUser.userName"
+      v-bind:isUser = "isUser"
     >
   </the-footer>
 </template>
@@ -21,8 +22,8 @@
     },
     data(){
       return{
-        loginUser: '',
-        isUser: false
+         loginUser: '',
+         isUser: false
       }
     },
     async created(){
