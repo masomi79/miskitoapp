@@ -117,4 +117,8 @@ export default {
     .word-meanings{
         padding-left: 40px;
     }
+    h2{
+        font-size: 2.6rem;
+        font-weight: bold;
+    }
 </style>

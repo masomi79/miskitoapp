@@ -10945,10 +10945,9 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: #1a202c;
-  background-color: #1a202c;
-  color: #cbd5e0;
-  color: #cbd5e0;
+  background-color: #ffffff;
+  background-color: white;
+  color: #292929;
   margin: 0;
   font-size: 1.2rem;
 }
