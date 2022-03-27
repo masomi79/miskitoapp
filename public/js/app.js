@@ -17539,24 +17539,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                if (!confirm('¿Estás seguro?')) {
+                  _context.next = 4;
+                  break;
+                }
+
                 _this.responceMessage = '';
-                _context.next = 3;
+                _context.next = 4;
                 return axios.post('/data/registerNewWord', wordData).then(function (response) {
                   return _this.responceMessage = response.data;
                 })["catch"](function (error) {
                   return _this.responceMessage = response.error;
                 });
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
-    },
-    umcoFunction: function umcoFunction(word) {
-      console.log(word + ' is in deep shit');
     },
     wordExistenseCheck: function wordExistenseCheck(word) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -17597,7 +17599,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                if (!confirm('are you sure?')) {
+                if (!confirm('¿Estas seguro?')) {
                   _context3.next = 8;
                   break;
                 }
@@ -18883,7 +18885,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         onClick: _cache[2] || (_cache[2] = function ($event) {
           return $options.sendModalControl('newWord');
         })
-      }, "nueva palabra")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      }, "nueva palabra"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        onClick: _cache[3] || (_cache[3] = function ($event) {
+          return $options.sendModalControl('newExample');
+        })
+      }, "nuevo ejemplo")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
@@ -18962,35 +18968,54 @@ var _hoisted_12 = {
   "class": "modalInner"
 };
 var _hoisted_13 = {
+  key: 0
+};
+var _hoisted_14 = {
+  key: 1
+};
+var _hoisted_15 = {
   "class": "modalParts"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "for": "targetWord"
+}, "palabra en miskito", -1
+/* HOISTED */
+);
+
+var _hoisted_17 = {
+  "class": "inputWrap"
+};
+var _hoisted_18 = {
+  "class": "modalParts"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "newExampleMiq"
 }, "oración en miskito", -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_20 = {
   "class": "inputWrap"
 };
-var _hoisted_16 = {
+var _hoisted_21 = {
   "class": "modalParts"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "newExampleEsp"
 }, "oración en español", -1
 /* HOISTED */
 );
 
-var _hoisted_18 = {
+var _hoisted_23 = {
   "class": "inputWrap"
 };
-var _hoisted_19 = {
+var _hoisted_24 = {
   "class": "modalParts"
 };
-var _hoisted_20 = {
+var _hoisted_25 = {
   "class": "buttomWrap"
 };
 
@@ -19031,34 +19056,42 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         onClick: _cache[4] || (_cache[4] = function ($event) {
           return _ctx.$emit('close');
         })
-      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.modalType == 'newExample' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Añadir un nuevo ejemplo para \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.targetWord) + "\"", 1
+      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.modalType == 'newExample' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
+      ), $props.targetWord ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Añadir un nuevo ejemplo para \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.targetWord) + "\"", 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $data.exampleData.targetWord = $event;
+        }),
+        type: "text",
+        placeholder: "palabra para relacionar"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.targetWord]])])])])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.exampleData.newExampleMiq = $event;
         }),
         type: "text",
         placeholder: "nuevo ejemplo de oración en miskito"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleMiq]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleMiq]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.exampleData.newExampleEsp = $event;
         }),
         type: "text",
         placeholder: "nuevo ejemplo de oración en español"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleEsp]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.exampleData.newExampleEsp]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         "class": "adelante",
-        onClick: _cache[7] || (_cache[7] = function ($event) {
+        onClick: _cache[8] || (_cache[8] = function ($event) {
           return $options.sendNewEjemplo($data.exampleData);
         })
       }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         "class": "negative",
-        onClick: _cache[8] || (_cache[8] = function ($event) {
+        onClick: _cache[9] || (_cache[9] = function ($event) {
           return _ctx.$emit('close');
         })
       }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]))];

@@ -29,8 +29,17 @@
             <div
                 v-if="modalType == 'newExample'"
                 class="modalInner">
-                <p>Añadir un nuevo ejemplo para "{{ targetWord }}"</p>
                 <div>{{ responceMessage }}</div>
+                
+                <div v-if="targetWord"><p>Añadir un nuevo ejemplo para "{{ targetWord }}"</p></div>
+                <div v-else>
+                    <div class="modalParts">
+                        <label for="targetWord">palabra en miskito</label>
+                        <div class="inputWrap">
+                        <input v-model="exampleData.targetWord" type="text" placeholder="palabra para relacionar">
+                    </div>
+                </div>
+                </div>
                 <div class="modalParts">
                     <label for="newExampleMiq">oración en miskito</label>
                     <div class="inputWrap">
@@ -79,14 +88,12 @@ export default {
 
     methods:{
         async sendNewWords(wordData){
-            this.responceMessage = '';
-            await axios.post('/data/registerNewWord', wordData)
-                .then(response => this.responceMessage = response.data)
-                .catch(error => this.responceMessage = response.error);
-        },
-
-        umcoFunction(word){
-            console.log(word + ' is in deep shit');
+            if(confirm('¿Estás seguro?')){
+                this.responceMessage = '';
+                await axios.post('/data/registerNewWord', wordData)
+                    .then(response => this.responceMessage = response.data)
+                    .catch(error => this.responceMessage = response.error);
+            }
         },
 
         async wordExistenseCheck(word){
@@ -102,7 +109,7 @@ export default {
         },
 
         async sendNewEjemplo(exampleData){
-            if(confirm('are you sure?')){
+            if(confirm('¿Estas seguro?')){
                 // console.log('he is sure to register');
                 //例文を登録してターゲットワードと関連付ける
                 await axios.post('/data/registerNewExample', exampleData)
