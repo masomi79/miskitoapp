@@ -52,7 +52,7 @@
         margin: 1.2rem 0 0.5rem;
     }
     .container{
-        margin: 0 auto 1.2rem;
+        margin: 4rem auto 1.2rem;
         padding-top: 1.2rem;
         border-top: solid lightgray 1px;
     }
