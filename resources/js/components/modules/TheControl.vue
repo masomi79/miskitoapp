@@ -4,6 +4,7 @@
         <div v-if="showControl">
             <div class="control-pannel">
                 <button v-on:click="sendModalControl('newWord')">nueva palabra</button>
+                <button v-on:click="sendModalControl('newExample')">nuevo ejemplo</button>
             </div>
         </div>
     </transition>
