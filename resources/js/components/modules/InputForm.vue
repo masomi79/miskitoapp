@@ -32,7 +32,7 @@
 <style scoped>
     .form-field-wrap{
         padding: 1rem 0;
-        margin: 4rem 0;
+        margin: 4rem 0 0;
     }
     .form-field{
         display: block;

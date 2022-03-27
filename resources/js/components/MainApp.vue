@@ -16,7 +16,6 @@
     </div>  
 </template>
 <script>
-    import TheModal from './modules/TheModal.vue';
     import TheAbout from './TheAbout.vue';
     import InputForm from './modules/InputForm.vue';
     import SearchResults from './modules/SearchResults.vue';
@@ -27,13 +26,11 @@
             SearchResults
         },
         props:[
-/*            'isUser',*/
             'loginUser',
             'userPriviledge'
         ],
         inject:[
-            'isUser',
-        //    'loginUser'
+            'isUser'
         ],
         emits:['catchSentWord'],
         data(){
@@ -48,7 +45,6 @@
         methods:{
             sendWordToSearch(word){
                 this.wordToSearch = word;
-                // console.log('vamos a buscar ' + this.wordToSearch);
             },
 
 

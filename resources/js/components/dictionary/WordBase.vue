@@ -28,6 +28,9 @@
 
         <p class="ref"><span>{{ lang }}-{{ id }}</span></p>
 
+        <share-buttons
+        ></share-buttons>
+
     </div>
 </template>
 
@@ -37,13 +40,15 @@ import ExampleSentences from './ExampleSentences.vue';
 import ConjugationsTable from './ConjugationsTable.vue';
 import SeeAlso from './SeeAlso.vue';
 import SearchedMeanings from '../modules/SearchedMeanings.vue';
+import ShareButtons from '../modules/ShareButtons.vue';
 export default {
     components:{
         ConjugationsTable,
         ExampleSentences,
-        WordMeanings,
         SeeAlso,
-        SearchedMeanings
+        SearchedMeanings,
+        ShareButtons,
+        WordMeanings
     },
     props:['id','lang','userPriviledge'],
     data(){
