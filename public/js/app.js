@@ -17445,13 +17445,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      path: '',
       link: ''
     };
   },
   created: function created() {
-    this.path = window.location.href;
-    this.link = 'whatsapp://send?text=' + this.path;
+    var href = location.href;
+    var param = location.search;
+    var url = href.replace(param, '');
+    param = encodeURIComponent(param);
+    console.log(url + param);
+    this.link = 'whatsapp://send?text=' + url + param;
     console.log(this.link);
   }
 });
@@ -18817,12 +18820,20 @@ var _hoisted_1 = {
   "class": "share-buttons"
 };
 
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+  "class": "share-via-whatsapp"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+  "class": "share-text"
+}, "compartir por whatsApp")], -1
+/* HOISTED */
+);
+
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
     href: $data.link
-  }, "Compartir por WhatsApp", 8
+  }, [_hoisted_2], 8
   /* PROPS */
   , ["href"])]);
 });
@@ -24165,7 +24176,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 500px) {\n.share-buttons[data-v-2be16815] {\n            display: none\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 500px) {\n.share-buttons[data-v-2be16815] {\n            display: none\n}\n}\n.share-buttons[data-v-2be16815]{\n        text-align: center;\n}\n.share-via-whatsapp[data-v-2be16815]{\n        background-image: url(https://miskito.org/img/whatsapp.png);\n        background-position: 0px 3px;\n        background-size: 30px;\n        background-repeat: no-repeat;\n        background-color: #27A71A;\n        color: #fdfdfd;\n        padding: 0.3rem 8px 0.3rem 30px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
