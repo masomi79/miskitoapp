@@ -17594,47 +17594,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var exampleWordsAll, exampleWords;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 if (!confirm('¿Estas seguro?')) {
-                  _context3.next = 8;
+                  _context3.next = 5;
                   break;
                 }
 
                 _context3.next = 3;
-                return axios.post('/data/registerNewExample', exampleData).then()["catch"](function (response) {
+                return axios.post('/data/registerNewExample', exampleData).then(function (response) {
+                  return console.log(response.data);
+                })["catch"](function (response) {
                   return console.log(response.error);
                 });
 
               case 3:
-                //例文を分解して単語の配列に格納する
-                exampleWordsAll = exampleData.newExampleMiq.split(' ');
-                exampleWords = exampleWordsAll.filter(function (element) {
-                  return !(element == exampleData.targetWord);
-                }); //活用形などのバリエーションを含めて配列中の単語が辞書に存在するかチェックする
-                //例文の中の単語が辞書にあればその例文を単語に関連づけるか尋ねて yes　なら登録する
-
-                exampleWords.forEach(function (word, index) {
-                  var cpw = this.wordExistenseCheck(word);
-
-                  if (cpw) {
-                    if (confirm('registrar este ejemplo para la palabra "' + word + '" ?')) {
-                      console.log('registrado.');
-                    } else {
-                      console.log('no registrado');
-                    }
-                  } else {}
-                }, _this2);
-                _context3.next = 8;
+                _context3.next = 5;
                 break;
 
-              case 8:
+              case 5:
                 _this2.$emit('close');
 
-              case 9:
+              case 6:
               case "end":
                 return _context3.stop();
             }

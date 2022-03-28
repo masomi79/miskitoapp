@@ -113,10 +113,10 @@ export default {
                 // console.log('he is sure to register');
                 //例文を登録してターゲットワードと関連付ける
                 await axios.post('/data/registerNewExample', exampleData)
-                    .then()
+                    .then(response => console.log(response.data))
                     .catch(response => console.log(response.error));
 
-                //例文を分解して単語の配列に格納する
+                /* 例文を分解して単語の配列に格納する
                 const exampleWordsAll = exampleData.newExampleMiq.split(' ');
                 const exampleWords = exampleWordsAll.filter(element => !(element == exampleData.targetWord))
 
@@ -135,6 +135,7 @@ export default {
                     }else{
                     }              
                 }, this);
+                */
 
             }else{
                 // console.log('he is not sure');
