@@ -23,6 +23,7 @@
             <dd>remodelado por Laravel + vue.js y cambió diseño</dd>
             </dl>
             <div>
+            <latest-examples></latest-examples>
             <h3>Links</h3>
             <ul>
                 <li><a href="https://www.bible.com/bible/433/MAT.1.MSKTU" target="_blank">Dawan Bîla Aiska</a></li>
@@ -38,9 +39,11 @@
 </template>
 <script>
     import TotalWords from './modules/TotalWords';
+    import LatestExamples from './modules/LatestExamples';
     export default{
         components:{
-            TotalWords
+            TotalWords,
+            LatestExamples
         }
     }
 </script>

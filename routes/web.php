@@ -46,8 +46,8 @@ Route::post('/data/setWordType', [AdminController::class, 'setWordType']);
 Route::post('/data/getRelatedTerms', [AdminController::class, 'getRelatedTerms']);
 // 提案語句を表示
 Route::post('/data/getSuggestions', [AdminController::class, 'getSuggestions']);
-// 例文を表示
-//Route::post('/data/getExamples', [AdminController::class, 'getExamples']);
+// 最新の例文を表示
+Route::get('/data/getLatestExamples', [AdminController::class, 'getLatestExamples']);
 // 例文を登録
 Route::post('/data/registerNewExample', [AdminController::class, 'registerNewExample']);
 // 関係を削除

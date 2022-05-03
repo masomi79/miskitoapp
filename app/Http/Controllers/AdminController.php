@@ -542,4 +542,14 @@ class AdminController extends Controller
         return $resultsSet;
     }
 
+    public function getLatestExamples(){
+
+        $examples = Example::orderBy('id', 'desc')
+            ->take(2)
+            ->leftJoin('miq_ex_relations', 'examples.id', '=', 'miq_ex_relations.miskito_sentence_id')
+            ->select('examples.id', 'examples.miskito_sentence', 'examples.spanish_sentence', 'miq_ex_relations.miskito_word_id')
+            ->get();
+        return $examples;
+    }
+
 }
