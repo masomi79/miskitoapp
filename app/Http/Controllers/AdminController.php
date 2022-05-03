@@ -511,18 +511,26 @@ class AdminController extends Controller
 
     //新規例文の登録
     public function registerNewExample(Request $request){
-        $targetWord = MiskitoWord::where('miskitoWord', '=', request('targetWord'))->get('id');
-        $targetWordId = $targetWord[0]['id'];
-
-        $message = 'umco';
+    
 
         $newExamples = Example::firstOrNew(['miskito_sentence' => request('newExampleMiq')]);
-            $newExamples->spanish_sentence = request('newExampleEsp');
-            $newExamples->save();
-            $miqExRelation = new miqExRelation;
-            $miqExRelation->miskito_sentence_id = $newExamples->id;
-            $miqExRelation->miskito_word_id = $targetWordId;
-            $miqExRelation->save();
+        $newExamples->spanish_sentence = request('newExampleEsp');
+        $newExamples->save();
+
+
+        $targetWords = explode(",", request('targetWord'));
+        
+        foreach($targetWords as $tWord){
+            $tWord = trim($tWord);
+            if($tWordId = MiskitoWord::where('miskitoWord', '=', $tWord)->first('id')){
+                $mWordId = $tWordId->id;
+                $miqExRelation = new miqExRelation;
+                $miqExRelation->miskito_sentence_id = $newExamples->id;
+                $miqExRelation->miskito_word_id = $mWordId;
+                $miqExRelation->save();
+            }
+            
+        }
 
         $resultsSet = [
             'miq' => request('newExampleMiq'),
@@ -532,6 +540,16 @@ class AdminController extends Controller
         ];
 
         return $resultsSet;
+    }
+
+    public function getLatestExamples(){
+
+        $examples = Example::orderBy('id', 'desc')
+            ->take(2)
+            ->leftJoin('miq_ex_relations', 'examples.id', '=', 'miq_ex_relations.miskito_sentence_id')
+            ->select('examples.id', 'examples.miskito_sentence', 'examples.spanish_sentence', 'miq_ex_relations.miskito_word_id')
+            ->get();
+        return $examples;
     }
 
 }
