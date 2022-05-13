@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotesTeble extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNotesTeble extends Migration
      */
     public function up()
     {
-        Schema::create('notes_teble', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->text('note');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateNotesTeble extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notes_teble');
+        Schema::dropIfExists('notes');
     }
 }

@@ -516,8 +516,6 @@ class AdminController extends Controller
    public function registerNewNote(Request $request){
     
     $newNote = new Note();
-    $newNote->save();
-/*
     $newNote->note = request('newNote');
     $newNote->save();
 
@@ -535,16 +533,12 @@ class AdminController extends Controller
         
     }
 
+    $message = 'hecho!';
+
     $resultsSet = [
         'note' => request('newNote'),
         'target' => request('targetWord'),
         'message' => $message
-    ];
-*/
-
-    $resultsSet = [
-        'note' => request('newNote'),
-        'target' => request('targetWord')
     ];
 
     return $resultsSet;
