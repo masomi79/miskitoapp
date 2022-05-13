@@ -8,6 +8,8 @@ use App\Models\MiskitoWord;
 use App\Models\SpanishWord;
 use App\Models\miqEspRelation;
 use App\Models\miqExRelation;
+use App\Models\miqNoteRelation;
+use App\Models\Note;
 use Auth;
 
 class AdminController extends Controller
@@ -508,6 +510,46 @@ class AdminController extends Controller
         }
 
     }
+
+
+   //新規記事の登録
+   public function registerNewNote(Request $request){
+    
+    $newNote = new Note();
+    $newNote->save();
+/*
+    $newNote->note = request('newNote');
+    $newNote->save();
+
+    $targetWords = explode(",", request('targetWord'));
+    
+    foreach($targetWords as $tWord){
+        $tWord = trim($tWord);
+        if($tWordId = MiskitoWord::where('miskitoWord', '=', $tWord)->first('id')){
+            $mWordId = $tWordId->id;
+            $miqNoteRelation = new miqNoteRelation;
+            $miqNoteRelation->note_id = $newNote->id;
+            $miqNoteRelation->miskito_word_id = $mWordId;
+            $miqNoteRelation->save();
+        }
+        
+    }
+
+    $resultsSet = [
+        'note' => request('newNote'),
+        'target' => request('targetWord'),
+        'message' => $message
+    ];
+*/
+
+    $resultsSet = [
+        'note' => request('newNote'),
+        'target' => request('targetWord')
+    ];
+
+    return $resultsSet;
+}    
+
 
     //新規例文の登録
     public function registerNewExample(Request $request){

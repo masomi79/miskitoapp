@@ -1,15 +1,14 @@
 <template>
     <footer>
         <div class="copyright">
-
-    <hr>
-                <p> 
-                    <span>Bienvenido </span>
-                    <span v-if="isUser"> <router-link to="home">{{loginUserName}}!</router-link> | <a v-on:click="logout()">Cerrar la sesión</a></span>
-                    <span v-else> Guest! | <a v-bind:href='loginUrl'>iniciar sessión</a> | <a v-bind:href='registerUrl'>inscribirse</a></span>
-                   
-                </p>
-                <p>&copy;miskito.org <span>2017 - {{ now }}</span> <span> | <router-link to="privacy">privacy</router-link> | <a href="https://massumifukuda.work/wp/contact" target="_blank">contact</a></span></p>
+            <hr>
+            <p> 
+                <span>Bienvenido </span>
+                <span v-if="isUser"> <router-link to="home">{{loginUserName}}!</router-link> | <a v-on:click="logout()">Cerrar la sesión</a></span>
+                <span v-else> Guest! | <a v-bind:href='loginUrl'>iniciar sessión</a> | <a v-bind:href='registerUrl'>inscribirse</a></span>
+                
+            </p>
+            <p>&copy;miskito.org <span>2017 - {{ now }}</span> <span> | <router-link to="privacy">privacy</router-link> | <a href="https://massumifukuda.work/wp/contact" target="_blank">contact</a></span></p>
         </div>
     </footer>
 </template>
