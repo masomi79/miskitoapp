@@ -9,7 +9,11 @@
             v-bind:userPriviledge="userPriviledge"
             ></word-meanings>
 
-        
+        <word-notes
+            class="word-note"
+            v-bind:id="id"
+        ></word-notes>
+
         <conjugations-table
             class="verbs-conjugations"
             v-if="isVerb"
@@ -36,6 +40,7 @@
 
 <script>
 import WordMeanings from './WordMeanings';
+import WordNotes from './wordNotes';
 import ExampleSentences from './ExampleSentences.vue';
 import ConjugationsTable from './ConjugationsTable.vue';
 import SeeAlso from './SeeAlso.vue';
@@ -43,12 +48,13 @@ import SearchedMeanings from '../modules/SearchedMeanings.vue';
 import ShareButtons from '../modules/ShareButtons.vue';
 export default {
     components:{
+        WordMeanings,
+        WordNotes,
         ConjugationsTable,
         ExampleSentences,
         SeeAlso,
         SearchedMeanings,
-        ShareButtons,
-        WordMeanings
+        ShareButtons
     },
     props:['id','lang','userPriviledge'],
     data(){

@@ -544,6 +544,10 @@ class AdminController extends Controller
     return $resultsSet;
 }    
 
+    //単語のIDを受け取りノートを返す
+    public function getNote(Request $request){
+        
+    }
 
     //新規例文の登録
     public function registerNewExample(Request $request){

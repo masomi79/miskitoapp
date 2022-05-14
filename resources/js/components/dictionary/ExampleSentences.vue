@@ -4,8 +4,8 @@
         <ul>
             <dl
                 v-for="example in examplesSet"
-                v-bind:key = example.index
-            >{{ example.index }}
+                v-bind:key = "example.index"
+            >
                 <dt>{{ example.miskito_sentence.toLowerCase() }}</dt>
                 <dd>{{ example.spanish_sentence.toLowerCase() }}</dd>
             </dl>
@@ -22,12 +22,10 @@ export default {
         }
     },
     async mounted(){
-        // 例文取得用のデータセット
         const dataForExamples = {
             'id' : this.id
-        };
-        // 取得
-//        await axios.post('/data/getExamples', dataForExamples)
+        }
+        
         await axios.post('/api/getExamples', dataForExamples)
             .then(response => this.examplesSet = response.data)
             .catch(error => console.log(error));
