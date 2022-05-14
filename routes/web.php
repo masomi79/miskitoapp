@@ -40,6 +40,8 @@ Route::post('/data/getSearchResult', [AdminController::class, 'getSearchResult']
 Route::post('/data/getSearchResultById', [AdminController::class, 'getSearchResultById']);
 // 新単語の登録
 Route::post('/data/registerNewWord', [AdminController::class, 'registerNewWord']);
+// 新しい記事の登録
+Route::post('/data/registerNewNote', [AdminController::class, 'registerNewNote']);
 // 単語の種類を登録
 Route::post('/data/setWordType', [AdminController::class, 'setWordType']);
 // 関連語句を表示

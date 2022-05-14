@@ -1,10 +1,11 @@
 <template>
-        <transition name="fade">
+    <transition name="fade">
     <teleport to="body">
         <div class="modal">
+            <!-- new word -->
             <div
-                v-if="modalType == 'newWord'" 
-                class="modalInner">
+            v-if="modalType == 'newWord'" 
+            class="modalInner">
                 <p>Añadir una nueva palabra</p>
                 <div>{{ responceMessage }}</div>
                 <div class="modalParts">
@@ -26,6 +27,7 @@
                     </div>
                 </div>
             </div>
+            <!-- new example -->
             <div
                 v-if="modalType == 'newExample'"
                 class="modalInner">
@@ -59,9 +61,33 @@
                     </div>
                 </div>
             </div>
+            <!-- new comment -->
+            <div v-if="modalType == 'newNote'" class="modalInner">
+                <div>{{ responceMessage }}</div>
+                <div v-if="targetWord"><p>Añadir un nueva nota para "{{ targetWord }}"</p></div>
+                <div v-else>
+                    <div class="modalParts">
+                        <label for="targetWord">palabra en miskito</label>
+                        <div class="inputWrap">
+                        <input v-model="noteData.targetWord" type="text" placeholder="palabra para relacionar">
+                        </div>
+                    </div>
+                </div>
+                <div class="modalParts">
+                    <label for="newNote">Contenido</label>
+                    <textarea v-model="noteData.newNote" >
+                    </textarea>
+                </div>
+                <div class="modalParts">
+                    <div class="buttomWrap">
+                        <button class="adelante" v-on:click="sendNewNote(noteData)">enviar</button>
+                        <button class="negative" v-on:click="$emit('close')">cerrar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </teleport>
-        </transition>
+    </transition>
 </template>
 <script>
 export default {
@@ -77,6 +103,10 @@ export default {
                 targetWord: this.targetWord,
                 newExampleMiq: '',
                 newExampleEsp: ''
+            },
+            noteData: {
+                targetWord: this.targetWord,
+                newNote: ''
             }
         }
     },
@@ -115,33 +145,21 @@ export default {
                 await axios.post('/data/registerNewExample', exampleData)
                     .then(response => console.log(response.data))
                     .catch(response => console.log(response.error));
-
-                /* 例文を分解して単語の配列に格納する
-                const exampleWordsAll = exampleData.newExampleMiq.split(' ');
-                const exampleWords = exampleWordsAll.filter(element => !(element == exampleData.targetWord))
-
-                //活用形などのバリエーションを含めて配列中の単語が辞書に存在するかチェックする
-
-                //例文の中の単語が辞書にあればその例文を単語に関連づけるか尋ねて yes　なら登録する
-                exampleWords.forEach(function(word, index){
-                    var cpw = this.wordExistenseCheck(word);
-
-                    if (cpw){
-                        if(confirm('registrar este ejemplo para la palabra "' + word + '" ?')){
-                            console.log('registrado.');
-                        }else{
-                            console.log('no registrado');
-                        }
-                    }else{
-                    }              
-                }, this);
-                */
-
             }else{
-                // console.log('he is not sure');
             }
             this.$emit('close');
         },
+
+        async sendNewNote(noteData){
+            if(confirm('¿Estás seguro?')){
+                // 新しい記事を投稿する
+                await axios.post('/data/registerNewNote', noteData)
+                    .then(responce => console.log(response.data))
+                    .catch(responce => console.log(response.error));
+            }else{
+            }
+            this.$emit('close');
+        }
     }
 }
 </script>
@@ -181,5 +199,8 @@ export default {
         width: 100%;
         padding-left: 1rem;
     }
-
+    textarea{
+        width: 100%;
+        height: 6rem;
+    }
 </style>

@@ -116,6 +116,18 @@ class DicController extends Controller
         return $examples;
     }
 
+    //単語のIDを受け取りノートを返す
+    public function getNotesFromId(Request $request){
+        $word_id = request('id');
+
+        $notes = miqNoteRelation::where('miskito_word_id', '=', $word_id)
+            ->leftJoin('notes', 'miq_note_relations.note_id', '=', 'notes.id')
+            ->select('notes.id', 'note')
+            ->get();
+
+        return $notes;
+    }
+
 
     //単語のIDと言語から意味の一覧を返す
     public function getMeanings(Request $request){

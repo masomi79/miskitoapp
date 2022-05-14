@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // IDと言語から単語を取得
 Route::post('/getWordFromId', 'App\Http\Controllers\API\DicController@getWordFromId');
+// IDと言語から単語を取得
+Route::post('/getNotesFromId', 'App\Http\Controllers\API\DicController@getNotesFromId');
 // 例文を表示
 Route::post('/getExamples', 'App\Http\Controllers\API\DicController@getExamples');
 // 意味の一覧を取得

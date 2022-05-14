@@ -27,8 +27,8 @@
             <h3>Links</h3>
             <ul>
                 <li><a href="https://www.bible.com/bible/433/MAT.1.MSKTU" target="_blank">Dawan Bîla Aiska</a></li>
-                <li><a href="https://www.jw.org/miq" target="_blank">jw.org</a></li>
-                <li><a href="https://wol.jw.org/miq/wol/h/r152/lp-mis" target="_blank">wol.jw.org</a></li>
+                <!-- li><a href="https://www.jw.org/miq" target="_blank">jw.org</a></>
+                <li><a href="https://wol.jw.org/miq/wol/h/r152/lp-mis" target="_blank">wol.jw.org</a></li -->
             </ul>
             <h3 id="sushi">Contacto</h3>
             <p>Contactenos : <a href="https://massumifukuda.work/wp/contact" target="_blank">contact form</a></p>

@@ -5,6 +5,7 @@
             <div class="control-pannel">
                 <button v-on:click="sendModalControl('newWord')">nueva palabra</button>
                 <button v-on:click="sendModalControl('newExample')">nuevo ejemplo</button>
+                <button v-on:click="sendModalControl('newNote')">nueva nota</button>
             </div>
         </div>
     </transition>

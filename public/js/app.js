@@ -16820,12 +16820,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              // 例文取得用のデータセット
               dataForExamples = {
                 'id': _this.id
-              }; // 取得
-              //        await axios.post('/data/getExamples', dataForExamples)
-
+              };
               _context.next = 3;
               return axios.post('/api/getExamples', dataForExamples).then(function (response) {
                 return _this.examplesSet = response.data;
@@ -16889,11 +16886,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _WordMeanings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WordMeanings */ "./resources/js/components/dictionary/WordMeanings.vue");
-/* harmony import */ var _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExampleSentences.vue */ "./resources/js/components/dictionary/ExampleSentences.vue");
-/* harmony import */ var _ConjugationsTable_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ConjugationsTable.vue */ "./resources/js/components/dictionary/ConjugationsTable.vue");
-/* harmony import */ var _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SeeAlso.vue */ "./resources/js/components/dictionary/SeeAlso.vue");
-/* harmony import */ var _modules_SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/SearchedMeanings.vue */ "./resources/js/components/modules/SearchedMeanings.vue");
-/* harmony import */ var _modules_ShareButtons_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../modules/ShareButtons.vue */ "./resources/js/components/modules/ShareButtons.vue");
+/* harmony import */ var _wordNotes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./wordNotes */ "./resources/js/components/dictionary/wordNotes.vue");
+/* harmony import */ var _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ExampleSentences.vue */ "./resources/js/components/dictionary/ExampleSentences.vue");
+/* harmony import */ var _ConjugationsTable_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ConjugationsTable.vue */ "./resources/js/components/dictionary/ConjugationsTable.vue");
+/* harmony import */ var _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SeeAlso.vue */ "./resources/js/components/dictionary/SeeAlso.vue");
+/* harmony import */ var _modules_SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../modules/SearchedMeanings.vue */ "./resources/js/components/modules/SearchedMeanings.vue");
+/* harmony import */ var _modules_ShareButtons_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modules/ShareButtons.vue */ "./resources/js/components/modules/ShareButtons.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16906,14 +16904,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ConjugationsTable: _ConjugationsTable_vue__WEBPACK_IMPORTED_MODULE_3__.default,
-    ExampleSentences: _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    SeeAlso: _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_4__.default,
-    SearchedMeanings: _modules_SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_5__.default,
-    ShareButtons: _modules_ShareButtons_vue__WEBPACK_IMPORTED_MODULE_6__.default,
-    WordMeanings: _WordMeanings__WEBPACK_IMPORTED_MODULE_1__.default
+    WordMeanings: _WordMeanings__WEBPACK_IMPORTED_MODULE_1__.default,
+    WordNotes: _wordNotes__WEBPACK_IMPORTED_MODULE_2__.default,
+    ConjugationsTable: _ConjugationsTable_vue__WEBPACK_IMPORTED_MODULE_4__.default,
+    ExampleSentences: _ExampleSentences_vue__WEBPACK_IMPORTED_MODULE_3__.default,
+    SeeAlso: _SeeAlso_vue__WEBPACK_IMPORTED_MODULE_5__.default,
+    SearchedMeanings: _modules_SearchedMeanings_vue__WEBPACK_IMPORTED_MODULE_6__.default,
+    ShareButtons: _modules_ShareButtons_vue__WEBPACK_IMPORTED_MODULE_7__.default
   },
   props: ['id', 'lang', 'userPriviledge'],
   data: function data() {
@@ -17201,6 +17201,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/wordNotes.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/wordNotes.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      hasNotes: false
+    };
   }
 });
 
@@ -17581,6 +17602,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         targetWord: this.targetWord,
         newExampleMiq: '',
         newExampleEsp: ''
+      },
+      noteData: {
+        targetWord: this.targetWord,
+        newNote: ''
       }
     };
   },
@@ -17681,6 +17706,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee3);
+      }))();
+    },
+    sendNewNote: function sendNewNote(noteData) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (!confirm('¿Estás seguro?')) {
+                  _context4.next = 5;
+                  break;
+                }
+
+                _context4.next = 3;
+                return axios.post('/data/registerNewNote', noteData).then(function (responce) {
+                  return console.log(response.data);
+                })["catch"](function (responce) {
+                  return console.log(response.error);
+                });
+
+              case 3:
+                _context4.next = 5;
+                break;
+
+              case 5:
+                _this3.$emit('close');
+
+              case 6:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   }
@@ -17991,7 +18051,36 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h3 data-v-c7ae0df2>Colaboración</h3><p data-v-c7ae0df2>Nos ayudan en la creación de la mayor miskito - español (y japonés) diccionario en línea. Simplemente <span data-v-c7ae0df2><a href=\"/home\" data-v-c7ae0df2>inicie una sesión</a></span> y añadir una nueva traducción. es un proyecto personal pero colaborativo y cada uno puede añadir (y eliminar) traducciones. Hace que nuestro diccionario miskito español real, ya que es creado por personas que viven en la región y usa el lenguaje de cada día. También puede estar seguro, que cualquier error en el diccionario se repara rápidamente, así que usted puede confiar en los datos. Si encuentra algún error o que son capaces de añadir nuevos datos: por favor, hazlo. Miles de personas se lo agradecerán para hacerlo.</p><p data-v-c7ae0df2>Nos ayudan a enriquecer el diccionario y ver como el conocimiento tuyo ayuda a los demás!</p><h3 data-v-c7ae0df2>Historial</h3><dl data-v-c7ae0df2><dt data-v-c7ae0df2>2017.08.01</dt><dd data-v-c7ae0df2>publicado</dd><dt data-v-c7ae0df2>2018.11.01</dt><dd data-v-c7ae0df2>10 usuarios</dd><dt data-v-c7ae0df2>2020.08.01</dt><dd data-v-c7ae0df2>remodelado por Laravel + vue.js y cambió diseño</dd></dl>", 5);
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h3 data-v-c7ae0df2>Links</h3><ul data-v-c7ae0df2><li data-v-c7ae0df2><a href=\"https://www.bible.com/bible/433/MAT.1.MSKTU\" target=\"_blank\" data-v-c7ae0df2>Dawan Bîla Aiska</a></li><li data-v-c7ae0df2><a href=\"https://www.jw.org/miq\" target=\"_blank\" data-v-c7ae0df2>jw.org</a></li><li data-v-c7ae0df2><a href=\"https://wol.jw.org/miq/wol/h/r152/lp-mis\" target=\"_blank\" data-v-c7ae0df2>wol.jw.org</a></li></ul><h3 id=\"sushi\" data-v-c7ae0df2>Contacto</h3><p data-v-c7ae0df2>Contactenos : <a href=\"https://massumifukuda.work/wp/contact\" target=\"_blank\" data-v-c7ae0df2>contact form</a></p><p data-v-c7ae0df2>Me invita un Sushi : <a href=\"https://www.paypal.com/paypalme2/masomi79/25usd\" target=\"_blank\" data-v-c7ae0df2>🍣🍣🍶</a></p>", 5);
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", null, "Links", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+  href: "https://www.bible.com/bible/433/MAT.1.MSKTU",
+  target: "_blank"
+}, "Dawan Bîla Aiska")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" li><a href=\"https://www.jw.org/miq\" target=\"_blank\">jw.org</a></>\n                <li><a href=\"https://wol.jw.org/miq/wol/h/r152/lp-mis\" target=\"_blank\">wol.jw.org</a></li ")], -1
+/* HOISTED */
+);
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
+  id: "sushi"
+}, "Contacto", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Contactenos : "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+  href: "https://massumifukuda.work/wp/contact",
+  target: "_blank"
+}, "contact form")], -1
+/* HOISTED */
+);
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Me invita un Sushi : "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+  href: "https://www.paypal.com/paypalme2/masomi79/25usd",
+  target: "_blank"
+}, "🍣🍣🍶")], -1
+/* HOISTED */
+);
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -18000,7 +18089,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   var _component_latest_examples = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("latest-examples");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, _hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_total_words), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_latest_examples), _hoisted_11])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, _hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_total_words), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_latest_examples), _hoisted_11, _hoisted_12, _hoisted_13, _hoisted_14, _hoisted_15])])]);
 });
 
 /***/ }),
@@ -18294,9 +18383,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   return $data.isExamples ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.examplesSet, function (example) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("dl", {
       key: example.index
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(example.index) + " ", 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("dt", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(example.miskito_sentence.toLowerCase()), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("dt", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(example.miskito_sentence.toLowerCase()), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("dd", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(example.spanish_sentence.toLowerCase()), 1
     /* TEXT */
@@ -18427,6 +18514,8 @@ var _hoisted_2 = {
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   var _component_word_meanings = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("word-meanings");
 
+  var _component_word_notes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("word-notes");
+
   var _component_conjugations_table = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("conjugations-table");
 
   var _component_example_sentences = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("example-sentences");
@@ -18444,7 +18533,12 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     userPriviledge: $props.userPriviledge
   }, null, 8
   /* PROPS */
-  , ["id", "lang", "userPriviledge"]), $data.isVerb ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_conjugations_table, {
+  , ["id", "lang", "userPriviledge"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_word_notes, {
+    "class": "word-note",
+    id: $props.id
+  }, null, 8
+  /* PROPS */
+  , ["id"]), $data.isVerb ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_conjugations_table, {
     key: 0,
     "class": "verbs-conjugations",
     word: $data.word
@@ -18636,6 +18730,41 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   /* STABLE_FRAGMENT */
   );
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/wordNotes.vue?vue&type=template&id=04bca52e":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/wordNotes.vue?vue&type=template&id=04bca52e ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  key: 0
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "note", -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  key: 1
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "no note", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return $data.hasNotes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_3, [_hoisted_4]));
+}
 
 /***/ }),
 
@@ -18995,7 +19124,11 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         onClick: _cache[3] || (_cache[3] = function ($event) {
           return $options.sendModalControl('newExample');
         })
-      }, "nuevo ejemplo")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      }, "nuevo ejemplo"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        onClick: _cache[4] || (_cache[4] = function ($event) {
+          return $options.sendModalControl('newNote');
+        })
+      }, "nueva nota")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
@@ -19124,6 +19257,45 @@ var _hoisted_24 = {
 var _hoisted_25 = {
   "class": "buttomWrap"
 };
+var _hoisted_26 = {
+  key: 2,
+  "class": "modalInner"
+};
+var _hoisted_27 = {
+  key: 0
+};
+var _hoisted_28 = {
+  key: 1
+};
+var _hoisted_29 = {
+  "class": "modalParts"
+};
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "for": "targetWord"
+}, "palabra en miskito", -1
+/* HOISTED */
+);
+
+var _hoisted_31 = {
+  "class": "inputWrap"
+};
+var _hoisted_32 = {
+  "class": "modalParts"
+};
+
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "for": "newNote"
+}, "Contenido", -1
+/* HOISTED */
+);
+
+var _hoisted_34 = {
+  "class": "modalParts"
+};
+var _hoisted_35 = {
+  "class": "buttomWrap"
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -19134,7 +19306,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "default": _withId(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
         to: "body"
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [$props.modalType == 'newWord' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" new word "), $props.modalType == 'newWord' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -19162,7 +19334,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         onClick: _cache[4] || (_cache[4] = function ($event) {
           return _ctx.$emit('close');
         })
-      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.modalType == 'newExample' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
+      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" new example "), $props.modalType == 'newExample' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
       /* TEXT */
       ), $props.targetWord ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Añadir un nuevo ejemplo para \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.targetWord) + "\"", 1
       /* TEXT */
@@ -19198,6 +19370,34 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         "class": "negative",
         onClick: _cache[9] || (_cache[9] = function ($event) {
+          return _ctx.$emit('close');
+        })
+      }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" new comment "), $props.modalType == 'newNote' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.responceMessage), 1
+      /* TEXT */
+      ), $props.targetWord ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, "Añadir un nueva nota para \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.targetWord) + "\"", 1
+      /* TEXT */
+      )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
+          return $data.noteData.targetWord = $event;
+        }),
+        type: "text",
+        placeholder: "palabra para relacionar"
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.noteData.targetWord]])])])])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_32, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("textarea", {
+        "onUpdate:modelValue": _cache[11] || (_cache[11] = function ($event) {
+          return $data.noteData.newNote = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.noteData.newNote]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "class": "adelante",
+        onClick: _cache[12] || (_cache[12] = function ($event) {
+          return $options.sendNewNote($data.noteData);
+        })
+      }, "enviar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "class": "negative",
+        onClick: _cache[13] || (_cache[13] = function ($event) {
           return _ctx.$emit('close');
         })
       }, "cerrar")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]))];
@@ -24387,7 +24587,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.modal[data-v-3916caa2]{\n        display: block;\n        background-color: antiquewhite;\n        border: solid 1px #ccc;\n        padding: 2rem;\n        position: fixed;\n        top: 4rem;\n        left: 50%;\n        margin-left: -25%;\n        width: 50%;\n        height: 80%;\n        overflow-y: auto;\n        color: #333;\n}\n.modalParts[data-v-3916caa2]{\n        padding: 0.5rem 0.5rem 0 0.5rem;\n        margin: 0.5rem 0 0 0;\n}\n.modalParts label[data-v-3916caa2]{\n        margin:0;\n}\n.modalParts .inputWrap[data-v-3916caa2]{\n        background: #fff;\n        border: solid 1px #ccc;\n}\n.modalParts .buttomWrap[data-v-3916caa2]{\n        text-align: center;\n        padding: 2rem 0 0 0;\n        display: grid;\n}\n.modalParts input[type='text'][data-v-3916caa2]{\n        border: none;\n        width: 100%;\n        padding-left: 1rem;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.modal[data-v-3916caa2]{\n        display: block;\n        background-color: antiquewhite;\n        border: solid 1px #ccc;\n        padding: 2rem;\n        position: fixed;\n        top: 4rem;\n        left: 50%;\n        margin-left: -25%;\n        width: 50%;\n        height: 80%;\n        overflow-y: auto;\n        color: #333;\n}\n.modalParts[data-v-3916caa2]{\n        padding: 0.5rem 0.5rem 0 0.5rem;\n        margin: 0.5rem 0 0 0;\n}\n.modalParts label[data-v-3916caa2]{\n        margin:0;\n}\n.modalParts .inputWrap[data-v-3916caa2]{\n        background: #fff;\n        border: solid 1px #ccc;\n}\n.modalParts .buttomWrap[data-v-3916caa2]{\n        text-align: center;\n        padding: 2rem 0 0 0;\n        display: grid;\n}\n.modalParts input[type='text'][data-v-3916caa2]{\n        border: none;\n        width: 100%;\n        padding-left: 1rem;\n}\ntextarea[data-v-3916caa2]{\n        width: 100%;\n        height: 6rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -57248,6 +57448,32 @@ _WordSuggestions_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.defaul
 
 /***/ }),
 
+/***/ "./resources/js/components/dictionary/wordNotes.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/dictionary/wordNotes.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordNotes_vue_vue_type_template_id_04bca52e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./wordNotes.vue?vue&type=template&id=04bca52e */ "./resources/js/components/dictionary/wordNotes.vue?vue&type=template&id=04bca52e");
+/* harmony import */ var _wordNotes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wordNotes.vue?vue&type=script&lang=js */ "./resources/js/components/dictionary/wordNotes.vue?vue&type=script&lang=js");
+
+
+
+_wordNotes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _wordNotes_vue_vue_type_template_id_04bca52e__WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_wordNotes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/dictionary/wordNotes.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_wordNotes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
 /***/ "./resources/js/components/modules/InputForm.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/modules/InputForm.vue ***!
@@ -57752,6 +57978,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/dictionary/wordNotes.vue?vue&type=script&lang=js":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/dictionary/wordNotes.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_wordNotes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_wordNotes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./wordNotes.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/wordNotes.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/modules/InputForm.vue?vue&type=script&lang=js":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/modules/InputForm.vue?vue&type=script&lang=js ***!
@@ -58084,6 +58326,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_WordSuggestions_vue_vue_type_template_id_dad1ab12_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_WordSuggestions_vue_vue_type_template_id_dad1ab12_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./WordSuggestions.vue?vue&type=template&id=dad1ab12&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/WordSuggestions.vue?vue&type=template&id=dad1ab12&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dictionary/wordNotes.vue?vue&type=template&id=04bca52e":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/dictionary/wordNotes.vue?vue&type=template&id=04bca52e ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_wordNotes_vue_vue_type_template_id_04bca52e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_wordNotes_vue_vue_type_template_id_04bca52e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./wordNotes.vue?vue&type=template&id=04bca52e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dictionary/wordNotes.vue?vue&type=template&id=04bca52e");
 
 
 /***/ }),
