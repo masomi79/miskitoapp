@@ -11,6 +11,7 @@ use App\Models\SpanishWord;
 use App\Models\Example;
 use App\Models\miqEspRelation;
 use App\Models\miqExRelation;
+use App\Models\miqNoteRelation;
 
 
 class DicController extends Controller
@@ -124,6 +125,7 @@ class DicController extends Controller
             ->leftJoin('notes', 'miq_note_relations.note_id', '=', 'notes.id')
             ->select('notes.id', 'note')
             ->get();
+        
 
         return $notes;
     }

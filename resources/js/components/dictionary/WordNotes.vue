@@ -1,13 +1,18 @@
 <template>
-
+    <h3>notes</h3>
+    <ul
+        v-for="note in wordNotes" v-bind:key="note.index"
+    >
+        <li>umco </li>
+    </ul>
 </template>
 
 <script>
 export default{
+    props: ['id'],
     data(){
         return{
-            hasNotes: false,
-            wordNote: ''
+            wordNotes: ''
         }
     },
     async mounted(){
@@ -19,8 +24,6 @@ export default{
         await axios.post('/api/getNotesFromId', dataForNote)
             .then(response => this.wordNotes = response.data)
             .catch(error => console.log(error));
-
-        console.log(this.wordNotes);
 
     }
 

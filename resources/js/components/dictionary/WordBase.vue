@@ -10,15 +10,13 @@
             ></word-meanings>
 
         <word-notes
-            class="word-note"
-            v-bind:id="id"
-        ></word-notes>
+            class="word-notes"
+            v-bind:id="id"></word-notes>
 
         <conjugations-table
             class="verbs-conjugations"
             v-if="isVerb"
-            v-bind:word="word"
-            ></conjugations-table>
+            v-bind:word="word"></conjugations-table>
 
         <example-sentences
             class="example-sentences"
@@ -39,22 +37,22 @@
 </template>
 
 <script>
-import WordMeanings from './WordMeanings';
-import WordNotes from './wordNotes';
 import ExampleSentences from './ExampleSentences.vue';
 import ConjugationsTable from './ConjugationsTable.vue';
 import SeeAlso from './SeeAlso.vue';
 import SearchedMeanings from '../modules/SearchedMeanings.vue';
 import ShareButtons from '../modules/ShareButtons.vue';
+import WordMeanings from './WordMeanings.vue';
+import WordNotes from './WordNotes';
 export default {
     components:{
-        WordMeanings,
-        WordNotes,
         ConjugationsTable,
         ExampleSentences,
         SeeAlso,
         SearchedMeanings,
-        ShareButtons
+        ShareButtons,
+        WordMeanings,
+        WordNotes
     },
     props:['id','lang','userPriviledge'],
     data(){
