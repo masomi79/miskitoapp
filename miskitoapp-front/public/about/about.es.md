@@ -5,7 +5,7 @@ Este diccionario miskito - español en linea es un proyecto personal de [Massumi
 ## Estadística
 
 ## Colaboración
-Nos ayudan en la creación de la mayor miskito - español diccionario en línea. Simplemente [inicie una sesión](/register) y añadir una nueva traducción. Este es un proyecto personal, pero al mismo tiempo es participativo, y cualquiera puede añadir traducciones. Además, al convertirse en usuario editorial, también es posible editar o eliminar entradas. 
+Nos ayudan en la creación de la mayor miskito - español diccionario en línea. Simplemente [inicie una sesión](/mypage) y añadir una nueva traducción. Este es un proyecto personal, pero al mismo tiempo es participativo, y cualquiera puede añadir traducciones. Además, al convertirse en usuario editorial, también es posible editar o eliminar entradas. 
 Hace que nuestro diccionario miskito español real, ya que es creado por personas que viven en la región y usa el lenguaje de cada día. También puede estar seguro, que cualquier error en el diccionario se repara rápidamente, así que usted puede confiar en los datos. Si encuentra algún error o que son capaces de añadir nuevos datos: por favor, hazlo. Miles de personas se lo agradecerán para hacerlo.
 Nos ayudan a enriquecer el diccionario y ver como el conocimiento tuyo ayuda a los demás!
 
