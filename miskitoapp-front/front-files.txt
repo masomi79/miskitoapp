@@ -1,0 +1,10 @@
+miskitoapp-front - src + components -+- MarkdownRenderer.vue
+									 +- SearchForm.vue
+									 +- WordDetail.vue
+									 +- WordSearch.vue
+					   + router      -- index.js
+					   + views		 -- AboutView.vue			 
+					   + App.vue
+					   + i18n.js
+					   + main.js
+					   + style.css
