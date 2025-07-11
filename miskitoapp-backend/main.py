@@ -3,18 +3,22 @@ from fastapi.middleware.cors import CORSMiddleware
 import aiomysql
 from dotenv import load_dotenv
 import os
+from routers import auth
 
+app = FastAPI()
+app.include_router(auth.router)
 # .envファイルから環境変数を読み込む
 load_dotenv()
 
 # FastAPIアプリケーションの作成
 app = FastAPI()
+app.include_router(auth.router)
 
 # CORS（クロスオリジンリソースシェアリング）の設定
-# フロントエンド（Vue等）からAPIを呼ぶために必要。本番ではallow_originsを制限推奨。
+# フロントエンド（Vue等）からAPIを呼ぶ
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 開発中は全許可。本番環境では限定推奨。
+    allow_origins=["*"],  # 開発中は全許可。
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
