@@ -1,0 +1,9 @@
+miskitoapp-backend -+- main.py
+                    |
+                    +- routers -+- auth.py
+                    |
+                    +- schemas -+- user.py
+                    |
+                    +- utils ---+- jwt.py
+                                |
+                                +- password,py
