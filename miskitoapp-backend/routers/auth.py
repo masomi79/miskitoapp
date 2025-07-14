@@ -14,7 +14,7 @@ router = APIRouter()
 
 @router.post("/auth/register")
 async def register_user(user: UserCreate):
-    # MariaDBに接続（接続方法は本番環境に応じて変更してください）
+    # DBに接続
     conn = await aiomysql.connect(
         host=os.getenv("DB_HOST"),
         user=os.getenv("DB_USER"),
@@ -49,7 +49,7 @@ async def login_user(form_data: OAuth2PasswordRequestForm = Depends()):
     async with conn.cursor() as cur:
         await cur.execute("SELECT id, name, email, password FROM users WHERE email=%s", (form_data.username,))
         user = await cur.fetchone()
-        print(f"DBから取得したユーザー: {user}")  # 追加
+        # print(f"DBから取得したユーザー: {user}")
         if not user:
             raise HTTPException(status_code=400, detail="Invalid credentials")
         
@@ -76,5 +76,4 @@ async def login_user(form_data: OAuth2PasswordRequestForm = Depends()):
 
 @router.get("/mypage")
 async def get_my_page(current_user: User = Depends(get_current_user)):
-    # current_userはトークンから取得できたユーザー
     return current_user

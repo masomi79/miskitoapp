@@ -4,6 +4,8 @@ import WordDetail from '../components/WordDetail.vue'
 import AboutView from '../views/AboutView.vue'
 import UserRegisterView from '../views/UserRegisterView.vue'
 import MyPageView from '../views/MyPageView.vue'
+import LoginView from '../views/LoginView.vue'
+import LogoutView from '../views/LogoutView.vue'
 
 const routes = [
   { path: '/', component: WordSearch },
@@ -11,6 +13,8 @@ const routes = [
   { path: '/about', name: 'About', component: AboutView, },
   { path: '/register', component: UserRegisterView },
   { path: '/mypage', component: MyPageView},
+  { path: '/login', component: LoginView, name: 'Login' },
+  { path: '/logout', component: LogoutView, name: 'Logout' },
 ]
 
 const router = createRouter({
