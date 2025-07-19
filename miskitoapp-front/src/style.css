@@ -157,6 +157,7 @@ button:focus-visible {
     background-color: #fff;
     line-height: 1;
     padding: 18px;
+    z-index: 90;
 }
 .header-container{
   width: 100%;
@@ -187,8 +188,9 @@ button:focus-visible {
 .single-page-contents {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2em;
-    text-align: left
+    padding: 6em 2em;
+    text-align: left;
+    position: relative;
 }
 .single-page-contents select{
     margin-left: 1em;
@@ -198,9 +200,9 @@ button:focus-visible {
   }
 
 .language-selector {
-    position: fixed;
+    position: absolute;
     top: 3em;
-    right: 1em;
+    left: 1em;
 }
 .language-selector select{
     margin-left: 1em;
