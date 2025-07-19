@@ -23,13 +23,13 @@ const markdownContent = ref('')
 const loadMarkdown = async () => {
   let url
   if (locale.value === 'ja') {
-    url = '/about/about.ja.md'
+    url = '/md_about/about.ja.md'
   } else if (locale.value === 'en') {
-    url = '/about/about.en.md'
+    url = '/md_about/about.en.md'
   } else if (locale.value === 'es') {
-    url = '/about/about.es.md'
+    url = '/md_about/about.es.md'
   } else {
-    url = '/about/about.miq.md' // Default to miskitu if no match
+    url = '/md_about/about.miq.md' // Default to miskitu if no match
   }
   markdownContent.value = await fetch(url).then(r => r.text())
 }

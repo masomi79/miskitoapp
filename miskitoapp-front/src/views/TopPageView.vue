@@ -70,9 +70,4 @@ watchEffect(() => {
     nav ul li a:hover {
         text-decoration: underline;
     }
-    .language-selector{
-        position: absolute;
-        top: 1em;
-        right: 1em;
-    }
 </style>

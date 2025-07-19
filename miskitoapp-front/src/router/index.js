@@ -10,7 +10,7 @@ import LogoutView from '../views/LogoutView.vue'
 const routes = [
   { path: '/', component: TopPage },
   { path: '/:lang/:id', component: WordDetail, props: true },
-  { path: '/about', name: 'About', component: AboutView, },
+  { path: '/about', component: AboutView, },
   { path: '/register', component: UserRegisterView },
   { path: '/mypage', component: MyPageView},
   { path: '/login', component: LoginView, name: 'Login' },
