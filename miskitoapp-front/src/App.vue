@@ -1,27 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import WordSearch from './components/WordSearch.vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
+const route = useRoute()
 const { locale } = useI18n()
 </script>
 
 <template>
-  <div class="site-header">
-    <div class="header-container">
-      <h1>
-        <router-link to="/">miskito.org</router-link>
-      </h1>
-      <nav>
-        <div>
+  <div>
+    <!-- トップページ以外でヘッダー表示 -->
+    <div v-if="route.path !== '/'" class="site-header">
+      <div class="header-container">
+        <h1>
+          <router-link to="/">miskito.org</router-link>
+        </h1>
+        <nav>
+          <div>
             <router-link to="/about">Sobre nosotros</router-link>
-        </div>
-        <div><a href="https://massumifukuda.work/wp/contact/">Contact</a></div>
-      </nav>
+          </div>
+          <div>
+            <a href="https://massumifukuda.work/wp/contact/">Contact</a>
+          </div>
+        </nav>
+      </div>
     </div>
-  </div>
-  <div class="contents">
-    <router-view />
+    <div class="contents">
+      <router-view />
+    </div>
   </div>
 </template>
 
