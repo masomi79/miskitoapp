@@ -1,9 +1,4 @@
 <template>
-  <h1>
-    <router-link to="/">
-      <img src="/logo.png" class="logo" alt="miskito.org logo" />
-    </router-link>
-  </h1>
   <div class="field-wrap">
     <SearchForm
       v-model="word"

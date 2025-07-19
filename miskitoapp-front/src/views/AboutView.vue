@@ -1,6 +1,6 @@
 <template>
   <div class="single-page-contents">
-  <div>
+  <div class="language-selector">
     <select v-model="locale" style="margin-left: 1em;">
       <option value="es">español</option>
       <option value="miq">Miskitu</option>

@@ -36,12 +36,20 @@
       </div>
       <p class="tar">ID:{{ id }}</p>
     </div>
+    <div>
+      <WordSearch />
+    </div>
+        
   </div>
 </template>
 
 <script>
+import WordSearch from '../components/WordSearch.vue'
 
 export default {
+  components: {
+    WordSearch
+  },
   props: ['lang', 'id'],
   data() {
     return {

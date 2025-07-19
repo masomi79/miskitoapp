@@ -1,34 +1,60 @@
 <template>
-    <div>
-        <WordSearch />
-        <h1>Bienvenido a miskito.org</h1>
-        <nav>
-        <ul>
-            <li><router-link to="/atout">Sobre Nosotros</router-link></li>
-            <li><router-link to="/login">Iniciar Sesión</router-link></li>
-            <li><router-link to="/register">Registrarse</router-link></li>
-        </ul>
-        </nav>
+  <div>
+    <div class="language-selector">
+      <select v-model="locale" style="margin-left: 1em;">
+        <option value="es">español</option>
+        <option value="miq">Miskitu</option>
+        <option value="ja">日本語</option>
+        <option value="en">English</option>
+      </select>
     </div>
+    <h1>
+      <router-link to="/">
+        <img src="/logo.png" class="logo" alt="miskito.org logo" />
+      </router-link>
+    </h1>
+    <div>
+      <WordSearch />
+    </div>
+    <nav>
+      <MarkdownRenderer :source="markdownContent" />
+    </nav>
+  </div>
 </template>
 
-<script>
+<script setup>
+import { ref, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
 import WordSearch from '../components/WordSearch.vue'
+import MarkdownRenderer from '../components/MarkdownRenderer.vue'
 
-export default {
-  components: {
-    WordSearch
+const { locale } = useI18n()
+const markdownContent = ref('')
+
+const loadMarkdown = async () => {
+  let url
+  if (locale.value === 'ja') {
+    url = '/top/top.ja.md'
+  } else if (locale.value === 'en') {
+    url = '/top/top.en.md'
+  } else if (locale.value === 'es') {
+    url = '/top/top.es.md'
+  } else {
+    url = '/top/top.miq.md'
   }
+  markdownContent.value = await fetch(url).then(r => r.text())
 }
+
+watchEffect(() => {
+  loadMarkdown()
+})
 </script>
 
 <style scope>
-    h1{
-        margin: 4em auto 1em;
-    }
     nav ul{
         display: flex;
         justify-content: space-around;
+        margin: 4em auto 1em;
     }
     nav ul li {
         margin-right: 10px;
@@ -43,5 +69,10 @@ export default {
     }
     nav ul li a:hover {
         text-decoration: underline;
+    }
+    .language-selector{
+        position: absolute;
+        top: 1em;
+        right: 1em;
     }
 </style>

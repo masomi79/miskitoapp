@@ -147,13 +147,14 @@ button:focus-visible {
     top: 0;
     left: 0;
     width: 100%;
-    background: #f0f0f0;
+    background: #fff;
     padding: 1em;
+    border-bottom: 1px solid #ddd;
 }
 .site-header{
     width: 100%;
     display: block;
-    background-color: #aaa;
+    background-color: #fff;
     line-height: 1;
     padding: 18px;
 }
@@ -195,6 +196,19 @@ button:focus-visible {
     font-size: 1em;
     border: none;
   }
+
+.language-selector {
+    position: fixed;
+    top: 3em;
+    right: 1em;
+}
+.language-selector select{
+    margin-left: 1em;
+    line-height: 1em;
+    padding: .5em;
+    border: solid 1px #ddd;
+    border-radius: .5em;
+}
 
 @media screen and (max-width: 640px) {
   .field-wrap input {
