@@ -22,7 +22,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+/*  place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
 }
@@ -59,7 +59,7 @@ button:focus-visible {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: center;
 }
 
@@ -183,12 +183,13 @@ button:focus-visible {
 
 /* single page container */
 .contents {
-    padding: 2em;
+    padding: 0 2em;
+    position: relative;
 }
 .single-page-contents {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 6em 2em;
+    padding: 3em 2em;
     text-align: left;
     position: relative;
 }
@@ -201,7 +202,7 @@ button:focus-visible {
 
 .language-selector {
     position: absolute;
-    top: 3em;
+    top: 1em;
     left: 1em;
 }
 .language-selector select{

@@ -1,34 +1,50 @@
 <template>
-    <h1>Inicio</h1>
+    <h1>Home</h1>
     <a href="/logout">logout</a>
 </template>
 <script>
-    export default{
-        async mounted() {
-            console.log('thisis my page');
-            const token = localStorage.getItem("access_token");
-            if (!token) {
-                alert("No estás autenticado. Por favor, inicia sesión.");
-                this.$router.push("/login");
-            }
-            try {
-                const res = await fetch("http://localhost:8000/mypage", {
-                    method: "GET",
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-                if (!res.ok) {
-                    const error = await res.json();
-                    alert(error.detail || "Error al acceder a la página");
-                    this.$router.push("/login");
+    import { onMounted, ref } from 'vue';
+
+    export default {
+        setup() {
+            const isLoggedIn = ref(false);
+            const userName = ref('');
+
+            onMounted(async () => {
+                const token = localStorage.getItem('access_token');
+                if (token) {
+                    isLoggedIn.value = true;
+                    try {
+                        const res = await fetch('http://localhost:8000/mypage', {
+                            headers: { Authorization: `Bearer ${token}` }
+                        });
+                        console.log('mypage response:', res.status);
+                        if (res.ok) {
+                            const data = await res.json();
+                            userName.value = data.name || data.email || '';
+                        } else {
+                            isLoggedIn.value = false;
+                            userName.value = '';
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        isLoggedIn.value = false;
+                        userName.value = '';
+                    }
+                } else {
+                    isLoggedIn.value = false;
+                    userName.value = '';
                 }
-            } catch (e) {
-                alert("Error de red o servidor");
-                this.$router.push("/login");
-            }
+            });
+
+            return { isLoggedIn, userName };
         }
     }
 </script>
-<style>
+<style scoped>
+    h1 {
+        margin: 2em auto;
+    }
     .my-page-wrapper {
         max-width: 800px;
         margin: 0 auto;

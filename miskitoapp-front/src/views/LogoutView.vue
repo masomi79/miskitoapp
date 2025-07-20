@@ -18,6 +18,7 @@
         mounted() {
             // Aquí podrías agregar lógica para limpiar el estado del usuario, si es necesario
             localStorage.removeItem('access_token'); // Elimina el token de acceso
+            window.dispatchEvent(new Event('login-success')); // ←追加
         }
     };
 </script>

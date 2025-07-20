@@ -49,30 +49,27 @@ const { locale } = useI18n()
 const isLoggedIn = ref(false)
 const userName = ref('')
 
-onMounted(async () => {
+async function updateLoginStatus() {
   const token = localStorage.getItem('access_token')
   if (token) {
-    isLoggedIn.value = true
     try {
       const res = await fetch('http://localhost:8000/mypage', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (res.ok) {
         const data = await res.json()
+        isLoggedIn.value = true
         userName.value = data.name || data.email || ''
-      } else {
-        isLoggedIn.value = false
-        userName.value = ''
+        return
       }
-    } catch {
-      isLoggedIn.value = false
-      userName.value = ''
-    }
-  } else {
-    isLoggedIn.value = false
-    userName.value = ''
+    } catch {}
   }
-})
+  isLoggedIn.value = false
+  userName.value = ''
+}
+
+onMounted(updateLoginStatus)
+window.addEventListener('login-success', updateLoginStatus)
 </script>
 
 <style scoped>
@@ -103,7 +100,7 @@ h1{
 }
 .login-status-wrapper {
   padding: 10px;
-  margin: 1em auto;
+  margin: 2em auto 0;
 }
 .login-status-wrapper .container{
   max-width: 1200px;

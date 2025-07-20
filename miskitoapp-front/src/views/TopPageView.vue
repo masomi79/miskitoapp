@@ -8,17 +8,19 @@
         <option value="en">English</option>
       </select>
     </div>
-    <h1>
-      <router-link to="/">
-        <img src="/logo.png" class="logo" alt="miskito.org logo" />
-      </router-link>
-    </h1>
-    <div>
-      <WordSearch />
+    <div class="top-page-content">
+      <h1>
+        <router-link to="/">
+          <img src="/logo.png" class="logo" alt="miskito.org logo" />
+        </router-link>
+      </h1>
+      <div>
+        <WordSearch />
+      </div>
+      <nav>
+        <MarkdownRenderer :source="markdownContent" />
+      </nav>
     </div>
-    <nav>
-      <MarkdownRenderer :source="markdownContent" />
-    </nav>
   </div>
 </template>
 
@@ -69,5 +71,11 @@ watchEffect(() => {
     }
     nav ul li a:hover {
         text-decoration: underline;
+    }
+    .top-page-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4em 0;
+        text-align: center;
     }
 </style>

@@ -13,44 +13,35 @@
         <button type="submit">Iniciar Sesión</button>
     </form>
 </template>
-<script>
-export default{
-    data() {
-        return {
-            username: '',
-            password: ''
-        };
-    },
-    methods: {
-        async handleLogin() {
-            try {
-                const res = await fetch("http://localhost:8000/auth/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                    body: new URLSearchParams({
-                        username: this.username,
-                        password: this.password,
-                    }),
-                });
-                const result = await res.json();
-                if (res.ok) {
-                    // JWTトークンをlocalStorageに保存
-                    localStorage.setItem("access_token", result.access_token);
-                    alert("ログイン成功");
-                    // 必要ならルート遷移
-                    this.$router.push("/mypage");
-                } else {
-                    alert(result.detail || "ログイン失敗");
-                }
-            } catch (e) {
-                alert("通信エラー");
-            }
+<script setup>
+import { ref } from 'vue';
+
+const username = ref('');
+const password = ref('');
+
+const handleLogin = async () => {
+    try {
+        const res = await fetch("http://localhost:8000/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+                username: username.value,
+                password: password.value,
+            }),
+        });
+        const result = await res.json();
+        if (res.ok) {
+            localStorage.setItem('access_token', result.access_token)
+            window.dispatchEvent(new Event('login-success'))
+            this.$router.push('/mypage')
+        } else {
+            alert(result.detail || "ログイン失敗");
         }
-    },
-    mounted() {
-        console.log('LoginView mounted');
+    } catch (e) {
+        alert("通信エラー");
     }
 }
+
 </script>
