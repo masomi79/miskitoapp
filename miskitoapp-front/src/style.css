@@ -114,6 +114,9 @@ button:focus-visible {
     display: flex;  
     flex-wrap: wrap;
 }
+.field-wrap .search-candidates {
+    display: block;
+}
 .field-wrap li {
     margin: 0;
 }

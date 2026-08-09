@@ -7,10 +7,23 @@
       @submit="search"
     />
     <div v-if="result && result.input_word" class="result">
-      <h2>{{ result.input_word }} ({{ result.input_lang }})</h2>
-      <ul>
+      <h2><span class="small">La Cedena ingresada:</span>{{ result.input_word }} ({{ result.input_lang }})</h2>
+      <ul class="search-candidates" v-if="result.candidates && result.candidates.length">
+        <li
+          v-for="candidate in result.candidates"
+          :key="`${candidate.lang}-${candidate.id}`"
+          :class="{ 'exact-match': candidate.is_exact_match }"
+        >
+          <strong>{{ candidate.word }}</strong>
+          <span v-if="candidate.relations && candidate.relations.length">: </span>
+          <template v-for="(rel, idx) in candidate.relations" :key="`${candidate.id}-${rel.relation_id}`">
+            <a :href="`/${candidate.lang === 'miq' ? 'es' : 'miq'}/${rel.id}`">{{ rel.word }}</a>
+            <span v-if="idx < candidate.relations.length - 1">, </span>
+          </template>
+        </li>
+      </ul>
+      <ul v-else-if="result.relations && result.relations.length">
         <li v-for="(rel, idx) in result.relations" :key="idx">
-          <template v-if="idx > 0">, </template>
           <a :href="`/${result.target_lang}/${rel.id}`">{{ rel.word }}</a>
         </li>
       </ul>
@@ -53,3 +66,19 @@ export default {
   }
 };
 </script>
+<style scoped>
+.search-candidates {
+  display: block;
+  list-style: none;
+  padding: 0;
+}
+.exact-match {
+  font-weight: 700;
+  color: #2563eb;
+}
+.small{
+  font-size: 0.6em;
+  font-style: normal;
+  color: #666;
+}
+</style>
